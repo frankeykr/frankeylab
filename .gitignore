@@ -5,13 +5,11 @@ web/app/mu-plugins/*/
 web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
+web/app/languages/
 
 # WordPress
 web/wp
 web/.htaccess
-
-# Logs
-*.log
 
 # Dotenv
 .env
@@ -23,5 +21,10 @@ web/.htaccess
 
 # WP-CLI
 wp-cli.local.yml
+
+*.log
+.DS_Store
+node_modules/
+web/app/themes/frankeylab/dist/
 
 web/hellodb
