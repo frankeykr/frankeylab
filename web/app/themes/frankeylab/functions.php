@@ -18,28 +18,33 @@ function remove_menu() {
     remove_menu_page('edit-comments.php'); // コメント
 }
 
-
-/**
- * ContactForm7のカスタムバリデーション
- */
-add_filter('wpcf7_validate_text*', 'custom_validate_name_kana', 1, 2);
-
-function check_if_input_is_kana($result, $tag, $form_name) {
-    $value = isset($_POST[$form_name]) ? trim($_POST[$form_name]) : '';
-    if(!preg_match("/^[ぁ-ん]+$/u", $value) && $value !== "") {
-        $result->invalidate($tag, 'ひらがなで入力してください');
-    }
-    return;
-}
-
-function custom_validate_name_kana($result, $tag) {
-    switch($tag->name) {
-        case 'family-name-kana' :
-            check_if_input_is_kana($result, $tag, 'family-name-kana');
-            break;
-        case 'given-name-kana' :
-            check_if_input_is_kana($result, $tag, 'given-name-furigana');
-            break;
-    }
-    return $result;
+add_action('init', 'add_custom_post_type');
+function add_custom_post_type() {
+    $codeParams = array(
+        'labels' => array(
+            'name' => '코드',
+            'singular_name' => '코드',
+            'add_new' => '코드 추가',
+            'add_new_item' => '신규 코드 추가',
+            'edit_item' => '편집',
+            'new_item' => '新着物件事例',
+            'all_items' => '모든 코드',
+            'view_item' => '코드 보기',
+            'search_items' => '코드 검색',
+            'not_found' => '찾을 수 없습니다',
+            'not_found_in_trash' => '휴지통 안에 없습니다',
+            'enter_title_here' => '코드 이름을 입력',
+        ),
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'capability_type' => 'post',
+        'has_archive' => true,
+        'hierarchical' => false,
+        "supports" => array("title", "editor", "thumbnail"),
+        'menu_position' => 22,
+    );
+    register_post_type('code', $codeParams);
 }
