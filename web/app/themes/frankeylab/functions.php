@@ -1,21 +1,25 @@
 <?php
-// 管理画面から入力したコンテンツの自動整形をoffにする
+// 관리 화면에서 입력한 콘텐츠의 자동성형을 off로 만든다
 remove_filter('the_content', 'wpautop');
 remove_filter('the_excerpt', 'wpautop');
 
 add_action('wp_enqueue_scripts', 'enqueue_styles_and_scripts');
 function enqueue_styles_and_scripts() {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
-    wp_dequeue_style('parent-style'); // 親テーマのデフォルトスタイルシートを読み込ませない
+    wp_dequeue_style('parent-style'); // 부모 테마의 디폴트 스타일 시트를 불러오지 못하게 한다
     wp_enqueue_style('base-css', get_stylesheet_directory_uri() . '/dist/css/base.css');
     wp_enqueue_script('base-js', get_stylesheet_directory_uri() . '/dist/js/base.js', array(), false, true);
+
+    if (is_post_type_archive('code')) {
+        wp_enqueue_script('infinite-scroll', get_stylesheet_directory_uri() . '/dist/js/infinite_scroll.js', array(), false, true);
+    }
 }
 
 add_action('admin_menu', 'remove_menu');
 function remove_menu() {
-    remove_menu_page('index.php'); // ダッシュボード
-    remove_menu_page('edit.php'); // 投稿
-    remove_menu_page('edit-comments.php'); // コメント
+    remove_menu_page('index.php'); // 대쉬보드
+    remove_menu_page('edit.php'); // 투고
+    remove_menu_page('edit-comments.php'); // 코멘트
 }
 
 /**
@@ -73,3 +77,29 @@ register_taxonomy(
         )
     )
 );
+
+/**
+ * 코드 아카이브에서 무한 스크롤을 위한 코드. 
+ * 다음 페이지의 링크를 표시하는 함수에서 next_posts_link()로 생성되는 a태그에 id명을 붙이는 함수
+*/
+add_filter('next_posts_link_attributes', 'add_code_next_posts_link_class');
+function add_code_next_posts_link_class() {
+    if (is_post_type_archive('code')) {
+        return 'id="archive-works__pagination-next" class="archive-works__pagination-next-class"';
+    }
+}
+
+/**
+ * 코드 아카이브에서 메인루프 시킨 게시물 표시수를 1페이지당 6개만 표시하도록 설정한다
+ * -1로 설정하면 제한없이 표시
+ */
+add_action('pre_get_posts', 'change_posts_per_page');
+function change_posts_per_page($query) {
+    if (is_admin() || !$query->is_main_query()) {
+        return;
+    }
+    if (is_post_type_archive('code')) {
+        $query->set('posts_per_page', 1);
+    }
+    return;
+}
