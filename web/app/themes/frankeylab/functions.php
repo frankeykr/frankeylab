@@ -78,6 +78,19 @@ register_taxonomy(
     )
 );
 
+
+/**
+ * 管理画面の外観のメニューでチェックボックス追加するコード
+ */
+
+add_action('after_setup_theme', 'menu_setup');
+function menu_setup()
+{
+    register_nav_menus(array(
+        'global' => '글로벌 메뉴',
+    ));
+}
+
 /**
  * 코드 아카이브에서 무한 스크롤을 위한 코드. 
  * 다음 페이지의 링크를 표시하는 함수에서 next_posts_link()로 생성되는 a태그에 id명을 붙이는 함수
