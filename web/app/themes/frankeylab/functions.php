@@ -18,6 +18,9 @@ function remove_menu() {
     remove_menu_page('edit-comments.php'); // コメント
 }
 
+/**
+ * 커스텀포스트 기능 추가
+ */
 add_action('init', 'add_custom_post_type');
 function add_custom_post_type() {
     $codeParams = array(
@@ -48,3 +51,25 @@ function add_custom_post_type() {
     );
     register_post_type('code', $codeParams);
 }
+
+/**
+ * 커스텀포스트에 태그 기능 추가
+ */
+register_taxonomy(
+    'code-tag',
+    'code',
+    array(
+        'hierarchical' => false,
+        'label' => '코드 태그',
+        'singular_label' => '코드 태그',
+        'public' => true,
+        'query_var' => true,
+        'has_archive' => false,
+        'rewrite' => true,
+        'show_ui' => true,
+        'labels' => array(
+            'add_new_item' => '코드 태그 추가',
+            'search_items' => '코드 태그 검색',
+        )
+    )
+);
