@@ -71,8 +71,8 @@
                                             <div class="new-icon-container">
                                                 <?php
                                                 $today = date_i18n('U');
-                                                $worksPublishDay = get_the_time('U');
-                                                $dayDifference = ($today - $worksPublishDay) / 86400;
+                                                $postPublishDay = get_the_time('U');
+                                                $dayDifference = ($today - $postPublishDay) / 86400;
                                                 if ($dayDifference < 14) { ?>
                                                     <p class="new-icon">NEW!</p>
                                                 <?php } ?>

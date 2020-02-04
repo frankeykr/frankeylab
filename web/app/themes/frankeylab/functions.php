@@ -116,3 +116,59 @@ function change_posts_per_page($query) {
     }
     return;
 }
+
+/**
+ * TOP PAGE에 넣는 숏 코드
+ */
+add_shortcode('code_list', 'add_code_short_code');
+function add_code_short_code() {
+    ob_start();
+    ?>
+    <div class="content">
+        <?php
+        $codeObject = new WP_Query(array(
+            'post_type' => 'code',
+            'posts_per_page' => 4,
+            'order' => 'DESC',
+            'orderby' => 'date',
+        ));
+        ?>
+        <h2 class="content__title">CODE LIST</h2>
+        <ul class="post-list">
+            <?php
+            if ($codeObject->have_posts()):
+                while ($codeObject->have_posts()):$codeObject->the_post();
+                    $codeImageUrl = "";
+                    if (has_post_thumbnail()) {
+                        $codeImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($codeObject->ID), 'large')[0];
+                    } else {
+                        $codeImageUrl = get_stylesheet_directory_uri() . "/image/dummy.jpg";
+                    }
+                    ?>
+                    <li class="post-list__item">
+                        <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                            <div class="post-image-container">
+                                <img class="post-image-container__image" src="<?= $codeImageUrl; ?>"
+                                     alt="<?php the_title(); ?>">
+                            </div>
+                            <div class="post-title-and-content">
+                                <h3 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h3>
+                                <p class="content"><?= wp_trim_words(get_the_content(), 59, '⋯'); ?></p>
+                            </div>
+                        </a>
+                    </li>
+                <?php
+                endwhile;
+            endif;
+            wp_reset_postdata();
+            ?>
+        </ul>
+        <div class="link-to-archive">
+            <a class="link-to-archive-btn" href="<?= get_post_type_archive_link('code'); ?>">
+                <span>VIEW ALL</span>
+            </a>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
