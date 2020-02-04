@@ -30,7 +30,7 @@ function add_custom_post_type() {
             'add_new' => '코드 추가',
             'add_new_item' => '신규 코드 추가',
             'edit_item' => '편집',
-            'new_item' => '新着物件事例',
+            'new_item' => '신착 코드',
             'all_items' => '모든 코드',
             'view_item' => '코드 보기',
             'search_items' => '코드 검색',
