@@ -7,6 +7,10 @@ module.exports = {
     base: [
       path.join(__dirname, 'src/scss/style.scss'),
     ],
+
+    infinite_scroll: [
+      './src/js/infinite_scroll.js',
+    ],
   },
   output: {
     path: path.join(__dirname, 'web/app/themes/frankeylab/dist'),

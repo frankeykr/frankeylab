@@ -82,10 +82,10 @@ register_taxonomy(
  * 코드 아카이브에서 무한 스크롤을 위한 코드. 
  * 다음 페이지의 링크를 표시하는 함수에서 next_posts_link()로 생성되는 a태그에 id명을 붙이는 함수
 */
-add_filter('next_posts_link_attributes', 'add_code_next_posts_link_class');
-function add_code_next_posts_link_class() {
+add_filter('next_posts_link_attributes', 'add_next_posts_link_class');
+function add_next_posts_link_class() {
     if (is_post_type_archive('code')) {
-        return 'id="archive-works__pagination-next" class="archive-works__pagination-next-class"';
+        return 'id="archive__pagination-next" class="archive__pagination-next-class"';
     }
 }
 
