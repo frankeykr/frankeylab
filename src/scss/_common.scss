@@ -15,3 +15,30 @@ main {
         max-width: none;
     }
 }
+
+.content-wrap {
+    display: flex;
+
+    .content {
+        width: 65%;
+
+        @include sp-screen {
+            width: 100%;
+        }
+    }
+    
+    .sidebar {
+        width: 35%;
+
+        @include sp-screen {
+            display: none;
+        }
+    }
+}
+
+
+.post-image-container {
+    &__image {
+        width: 100%;
+    }
+}
