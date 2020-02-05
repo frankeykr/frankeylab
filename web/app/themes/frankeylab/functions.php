@@ -79,9 +79,8 @@ register_taxonomy(
     )
 );
 
-
 /**
- * 管理画面の外観のメニューでチェックボックス追加するコード
+ * 관리화면 헤더 메뉴에 체크박스 추가
  */
 
 add_action('after_setup_theme', 'menu_setup');
@@ -116,4 +115,42 @@ function change_posts_per_page($query) {
         $query->set('posts_per_page', 1);
     }
     return;
+}
+
+/**
+ * 상세 페이지에서 페이지네이션을 출력하는 함수
+ */
+function single_page_pagination() {
+    ?>
+    <div class="single-page-pagination animate-transform">
+        <?php
+        $previous_post = get_previous_post();
+        $next_post = get_next_post();
+        ?>
+        <div class="previous-page">
+            <?php
+            if (!empty($next_post)):
+                $next_post_id = $next_post->ID; ?>
+                <a class="previous-page__link" href="<?= get_the_permalink($next_post_id); ?>">
+                    <div class="pagination-container pagination-container__left">
+                        <p class="pagination-title"><?= get_the_title($next_post_id); ?></p>
+                        <span class="arrow-left"></span>
+                    </div>
+                </a>
+            <?php endif; ?>
+        </div>
+        <div class="next-page">
+            <?php
+            if (!empty($previous_post)):
+                $previous_post_id = $previous_post->ID; ?>
+                <a class="next-page__link" href="<?= get_the_permalink($previous_post_id); ?>">
+                    <div class="pagination-container pagination-container__right">
+                        <p class="pagination-title"><?= get_the_title($previous_post_id); ?></p>
+                        <span class="arrow-right"></span>
+                    </div>
+                </a>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php
 }
