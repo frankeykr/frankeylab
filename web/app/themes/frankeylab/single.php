@@ -25,7 +25,7 @@ if (have_posts()):
                             <?php
                             $postType = get_post_type($post);
                             $postTags = get_the_terms($post->ID, $postType . '-tag');
-                            if ($resultsTags) {
+                            if ($postTags) {
                                 foreach ($postTags as $tag) {
                                     echo '<li class="single-tags-container__tag"><p>' . esc_html($tag->name) . '</p></li>';
                                 }
