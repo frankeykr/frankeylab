@@ -1,3 +1,7 @@
+@mixin tb-screen {
+    @media (max-width: 991px) { @content; } 
+}
+
 @mixin sp-screen {
     @media (max-width: 767px) { @content; } 
 }
