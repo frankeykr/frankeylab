@@ -153,7 +153,7 @@ function add_code_short_code() {
                             </div>
                             <div class="post-title-and-content">
                                 <h3 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h3>
-                                <p class="content"><?= wp_trim_words(get_the_content(), 59, '⋯'); ?></p>
+                                <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
                             </div>
                         </a>
                     </li>
