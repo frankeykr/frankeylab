@@ -52,6 +52,7 @@ function add_custom_post_type() {
         'hierarchical' => false,
         "supports" => array("title", "editor", "thumbnail"),
         'menu_position' => 22,
+        'show_in_rest' => true, // gutenberg 적용
     );
     register_post_type('code', $codeParams);
 }
