@@ -52,7 +52,6 @@ function add_custom_post_type() {
         'hierarchical' => false,
         "supports" => array("title", "editor", "thumbnail"),
         'menu_position' => 22,
-        'show_in_rest' => true, // gutenberg 적용
     );
     register_post_type('code', $codeParams);
 }
@@ -124,7 +123,7 @@ add_shortcode('code_list', 'add_code_short_code');
 function add_code_short_code() {
     ob_start();
     ?>
-    <div class="content">
+    <section class="post">
         <?php
         $codeObject = new WP_Query(array(
             'post_type' => 'code',
@@ -168,7 +167,7 @@ function add_code_short_code() {
                 <span>VIEW ALL</span>
             </a>
         </div>
-    </div>
+    </section>
     <?php
     return ob_get_clean();
 }
