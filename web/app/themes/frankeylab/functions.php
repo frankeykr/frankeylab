@@ -149,6 +149,15 @@ function add_code_short_code() {
                             <div class="post-list__item__title">
                                 <h3 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h3>
                             </div>
+                            <ul class="post-list__item__tags">
+                                <?php
+                                $codeTags = get_the_terms($codeObject->ID, 'code-tag');
+                                if ($codeTags) {
+                                    foreach ($codeTags as $tag) {
+                                        echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
+                                    }
+                                } ?>
+                            </ul>
                             <div class="post-list__item__image">
                                 <div class="new-icon-container">
                                     <?php
@@ -168,6 +177,7 @@ function add_code_short_code() {
                                 </div>
                             </div>
                             <div class="post-list__item__content">
+                                
                                 <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
                             </div>
                         </a>
