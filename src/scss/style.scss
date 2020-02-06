@@ -2,8 +2,10 @@
 @import "fonts";
 @import "mixin";
 @import "vars";
-@import "common";
-@import "header";
-@import "footer";
 
-@import "top";
+@import "./common/common";
+@import "./common/header";
+@import "./common/footer";
+
+@import "./top/aside";
+@import "./top/main";

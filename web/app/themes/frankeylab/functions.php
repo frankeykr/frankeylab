@@ -145,21 +145,28 @@ function add_code_short_code() {
                     ?>
                     <li class="post-list__item">
                         <a href="<?php the_permalink(); ?>" class="link-to-single-page">
-                            <div class="new-icon-container">
-                                <?php
-                                $today = date_i18n('U');
-                                $postPublishDay = get_the_time('U');
-                                $dayDifference = ($today - $postPublishDay) / 86400;
-                                if ($dayDifference < 14) { ?>
-                                    <p class="new-icon">NEW!</p>
-                                <?php } ?>
+                            <div class="post-list__item__date">
+                                <span class="date"><?php the_date('Y.n.j'); ?></span>
                             </div>
-                            <div class="post-image-container">
-                                <img class="post-image-container__image" src="<?= $codeImageUrl; ?>"
-                                     alt="<?php the_title(); ?>">
-                            </div>
-                            <div class="post-title-and-content">
+                            <div class="post-list__item__title">
                                 <h3 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h3>
+                            </div>
+                            <div class="post-list__item__image">
+                                <div class="new-icon-container">
+                                    <?php
+                                    $today = date_i18n('U');
+                                    $postPublishDay = get_the_time('U');
+                                    $dayDifference = ($today - $postPublishDay) / 86400;
+                                    if ($dayDifference < 14) { ?>
+                                        <p class="new-icon">NEW!</p>
+                                    <?php } ?>
+                                </div>
+                                <div class="post-image-container">
+                                    <img class="post-image-container__image" src="<?= $codeImageUrl; ?>"
+                                        alt="<?php the_title(); ?>">
+                                </div>
+                            </div>
+                            <div class="post-list__item__content">
                                 <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
                             </div>
                         </a>
