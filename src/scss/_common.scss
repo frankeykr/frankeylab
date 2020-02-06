@@ -3,6 +3,12 @@
     box-sizing: border-box
 }
 
+body * {
+    font-family: #{$font-family};
+    font-style: normal;
+    color: $theme__font-color__black;
+}
+
 main {
     margin: 0 auto;
     width: calc(100% - 200px);
@@ -21,7 +27,7 @@ main {
 
     .content {
         width: 100%;
-        max-width: 750px;
+        max-width: 718px;
 
         @include sp-screen {
             max-width: none;
@@ -30,7 +36,7 @@ main {
 
     .sidebar {
         width: 30%;
-        max-width: 268px;
+        max-width: 300px;
         margin-left: 30px;
 
         @include sp-screen {

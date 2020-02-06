@@ -1,12 +1,39 @@
 .profile {
     &__image-container {
         margin: 0 auto;
+        margin-bottom: 16px;
         max-width: 150px;
         border-radius: 50%;
         overflow: hidden;
 
         &__image {
             width: 100%;
+        }
+    }
+
+    &__name-container {
+        text-align: center;
+        margin-bottom: 32px;
+
+        &__name {
+            font-size: 16px;
+        }
+    }
+
+    &__content-container {
+        margin-bottom: 32px;
+        
+        &__content {
+            font-size: 12px;
+        }
+    }
+
+    &__link-container {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            text-align: right;
         }
     }
 }
