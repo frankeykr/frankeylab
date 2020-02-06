@@ -20,15 +20,18 @@ main {
     display: flex;
 
     .content {
-        width: 65%;
+        width: 100%;
+        max-width: 750px;
 
         @include sp-screen {
-            width: 100%;
+            max-width: none;
         }
     }
 
     .sidebar {
-        width: 35%;
+        width: 30%;
+        max-width: 268px;
+        margin-left: 30px;
 
         @include sp-screen {
             display: none;
