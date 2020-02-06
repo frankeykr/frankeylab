@@ -145,9 +145,7 @@ function add_code_short_code() {
                     ?>
                     <li class="post-list__item">
                         <a href="<?php the_permalink(); ?>" class="link-to-single-page">
-                            <div class="post-list__item__date">
-                                <span class="date"><?php the_date('Y.n.j'); ?></span>
-                            </div>
+                            
                             <div class="post-list__item__title">
                                 <h3 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h3>
                             </div>
@@ -160,6 +158,9 @@ function add_code_short_code() {
                                     if ($dayDifference < 14) { ?>
                                         <p class="new-icon">NEW!</p>
                                     <?php } ?>
+                                </div>
+                                <div class="date-container">
+                                    <span class="date"><?php the_date('Y.n.j'); ?></span>
                                 </div>
                                 <div class="post-image-container">
                                     <img class="image" src="<?= $codeImageUrl; ?>"
