@@ -162,7 +162,7 @@ function add_code_short_code() {
                                     <?php } ?>
                                 </div>
                                 <div class="post-image-container">
-                                    <img class="post-image-container__image" src="<?= $codeImageUrl; ?>"
+                                    <img class="image" src="<?= $codeImageUrl; ?>"
                                         alt="<?php the_title(); ?>">
                                 </div>
                             </div>

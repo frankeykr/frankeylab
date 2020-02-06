@@ -1,15 +1,21 @@
-// Noto Sans KR
+// NanumSquare
 @font-face {
-    font-family: "Noto Sans KR";
-    font-weight: normal;
+    font-family: "NanumSquare";
+    font-weight: 300;
     font-style: normal;
-    src: url('/app/themes/frankeylab/fonts/Noto_Sans_KR/NotoSansKR-Regular.woff') format('woff');
+    src: url('/app/themes/frankeylab/fonts/NanumSquare/NanumSquareL.woff') format('woff');
 }
 @font-face {
-    font-family: "Noto Sans KR";
-    font-weight: bold;
+    font-family: "NanumSquare";
+    font-weight: 400;
     font-style: normal;
-    src: url('/app/themes/frankeylab/fonts/Noto_Sans_KR/NotoSansKR-Bold.woff') format('woff');
+    src: url('/app/themes/frankeylab/fonts/NanumSquare/NanumSquareR.woff') format('woff');
+}
+@font-face {
+    font-family: "NanumSquare";
+    font-weight: 700;
+    font-style: normal;
+    src: url('/app/themes/frankeylab/fonts/NanumSquare/NanumSquareB.woff') format('woff');
 }
 
 // Lato
@@ -32,4 +38,4 @@
     src: url('/app/themes/frankeylab/fonts/Lato/Lato-Bold.woff') format('woff');
 }
 
-$font-family: '"Lato", "Noto Sans KR"';
+$font-family: '"Lato", "NanumSquare", sans-serif';

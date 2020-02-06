@@ -1,0 +1,51 @@
+.post {
+    .post-list {
+        &__item {
+            margin-bottom: 60px;
+
+            &__date {
+                text-align: center;
+                margin-bottom: 8px;
+
+                .date {
+                    font-size: 12px;
+                    letter-spacing: 1.5px;
+                }
+            }
+            &__title {
+                text-align: center;
+                margin-bottom: 32px;
+                
+                .title {
+                    font-size: 24px;
+                    font-weight: normal;
+                }
+            }
+
+            &__image {
+                position: relative;
+
+                .new-icon-container {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+
+                    .new-icon {
+                    }
+                }
+
+                .post-image-container {
+                    .image {
+                        width: 100%;
+                    }
+                }
+            }
+
+            &__content {
+                .content {
+
+                }
+            }
+        }
+    }
+}
