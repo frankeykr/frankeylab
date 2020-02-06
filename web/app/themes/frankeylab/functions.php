@@ -132,7 +132,6 @@ function add_code_short_code() {
             'orderby' => 'date',
         ));
         ?>
-        <h2 class="content__title">CODE LIST</h2>
         <ul class="post-list">
             <?php
             if ($codeObject->have_posts()):
@@ -146,6 +145,15 @@ function add_code_short_code() {
                     ?>
                     <li class="post-list__item">
                         <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                            <div class="new-icon-container">
+                                <?php
+                                $today = date_i18n('U');
+                                $postPublishDay = get_the_time('U');
+                                $dayDifference = ($today - $postPublishDay) / 86400;
+                                if ($dayDifference < 14) { ?>
+                                    <p class="new-icon">NEW!</p>
+                                <?php } ?>
+                            </div>
                             <div class="post-image-container">
                                 <img class="post-image-container__image" src="<?= $codeImageUrl; ?>"
                                      alt="<?php the_title(); ?>">
