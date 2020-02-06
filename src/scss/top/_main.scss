@@ -1,7 +1,7 @@
 .post {
     .post-list {
         &__item {
-            margin-bottom: 60px;
+            margin-bottom: 120px;
 
             &__title {
                 text-align: center;
@@ -29,6 +29,7 @@
                     margin-right: 10px;
 
                     span {
+                        font-size: 14px;
                         color: $theme__font-color__white;
                     }
                 }
@@ -86,7 +87,21 @@
                     line-height: 2;
                     color: $theme__font-color__gray2;
                 }
+
+                .link {
+                    margin-top: 24px;
+                    display: flex;
+                    justify-content: center;
+
+                    span {
+                        font-size: 14px;
+                    }
+                }
             }
+        }
+
+        &__item:last-child {
+            margin-bottom: 0;
         }
     }
 }

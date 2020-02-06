@@ -144,43 +144,45 @@ function add_code_short_code() {
                     }
                     ?>
                     <li class="post-list__item">
-                        <a href="<?php the_permalink(); ?>" class="link-to-single-page">
                             
-                            <div class="post-list__item__title">
+                        <div class="post-list__item__title">
+                            <a href="<?php the_permalink(); ?>" class="link-to-single-page">
                                 <h3 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h3>
-                            </div>
-                            <ul class="post-list__item__tags">
+                            </a>
+                        </div>
+                        <ul class="post-list__item__tags">
+                            <?php
+                            $codeTags = get_the_terms($codeObject->ID, 'code-tag');
+                            if ($codeTags) {
+                                foreach ($codeTags as $tag) {
+                                    echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
+                                }
+                            } ?>
+                        </ul>
+                        <div class="post-list__item__image">
+                            <div class="new-icon-container">
                                 <?php
-                                $codeTags = get_the_terms($codeObject->ID, 'code-tag');
-                                if ($codeTags) {
-                                    foreach ($codeTags as $tag) {
-                                        echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
-                                    }
-                                } ?>
-                            </ul>
-                            <div class="post-list__item__image">
-                                <div class="new-icon-container">
-                                    <?php
-                                    $today = date_i18n('U');
-                                    $postPublishDay = get_the_time('U');
-                                    $dayDifference = ($today - $postPublishDay) / 86400;
-                                    if ($dayDifference < 14) { ?>
-                                        <p class="new-icon">NEW!</p>
-                                    <?php } ?>
-                                </div>
-                                <div class="date-container">
-                                    <span class="date"><?php the_date('Y.n.j'); ?></span>
-                                </div>
-                                <div class="post-image-container">
-                                    <img class="image" src="<?= $codeImageUrl; ?>"
-                                        alt="<?php the_title(); ?>">
-                                </div>
+                                $today = date_i18n('U');
+                                $postPublishDay = get_the_time('U');
+                                $dayDifference = ($today - $postPublishDay) / 86400;
+                                if ($dayDifference < 14) { ?>
+                                    <p class="new-icon">NEW!</p>
+                                <?php } ?>
                             </div>
-                            <div class="post-list__item__content">
-                                
-                                <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
+                            <div class="date-container">
+                                <span class="date"><?php the_date('Y.n.j'); ?></span>
                             </div>
-                        </a>
+                            <div class="post-image-container">
+                                <img class="image" src="<?= $codeImageUrl; ?>"
+                                    alt="<?php the_title(); ?>">
+                            </div>
+                        </div>
+                        <div class="post-list__item__content">
+                            <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
+                            <a href="<?php the_permalink(); ?>" class="link">
+                                <span>READ MORE</span>
+                            </a>
+                        </div>
                     </li>
                 <?php
                 endwhile;
@@ -188,11 +190,6 @@ function add_code_short_code() {
             wp_reset_postdata();
             ?>
         </ul>
-        <div class="link-to-archive">
-            <a class="link-to-archive-btn" href="<?= get_post_type_archive_link('code'); ?>">
-                <span>VIEW ALL</span>
-            </a>
-        </div>
     </section>
     <?php
     return ob_get_clean();
