@@ -7,13 +7,15 @@
 <body>
 
 <header>
-<?php
-wp_nav_menu( array(
-    'theme_location'  => 'global',
-    'container'       => 'nav',
-    'container_class' => 'global-navi',
-    'menu_id'         => 'global-menu-list',
-    'menu_class'      => '',
-));
-?>
+    <div class="site-header">
+        <?php
+        wp_nav_menu( array(
+            'theme_location'  => 'global',
+            'container'       => 'nav',
+            'container_class' => 'global-navi',
+            'menu_id'         => 'global-menu-list',
+            'menu_class'      => '',
+        ));
+        ?>
+    </div>
 </header>

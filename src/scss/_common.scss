@@ -9,7 +9,8 @@ body * {
     color: $theme__font-color__black;
 }
 
-main {
+.site-header, 
+.site-main {
     margin: 0 auto;
     width: calc(100% - 200px);
     max-width: 1080px;
