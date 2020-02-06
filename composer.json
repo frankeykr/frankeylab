@@ -82,6 +82,7 @@
     "wpackagist-plugin/breadcrumb-navxt":"^6",
     "wpackagist-plugin/contact-form-7-add-confirm":"^5",
     "wpackagist-plugin/redirection":"^4",
+    "wpackagist-plugin/instagram-feed":"^2",
     "koodimonni-language/core-ko_kr": "^5",
     "koodimonni/composer-dropin-installer": "^1"
   },

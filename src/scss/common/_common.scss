@@ -13,7 +13,8 @@ body * {
 }
 
 .site-header, 
-.site-main {
+.site-main,
+.site-footer {
     margin: 0 auto;
     width: calc(100% - 200px);
     max-width: 1080px;
