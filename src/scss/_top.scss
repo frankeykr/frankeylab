@@ -1,0 +1,12 @@
+.profile {
+    &__image-container {
+        margin: 0 auto;
+        max-width: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        &__image {
+            width: 100%;
+        }
+    }
+}
