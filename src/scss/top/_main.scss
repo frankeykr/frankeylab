@@ -10,6 +10,7 @@
                 .date {
                     font-size: 12px;
                     letter-spacing: 1.5px;
+                    color: $theme__font-color__gray;
                 }
             }
             &__title {
@@ -29,8 +30,11 @@
                     position: absolute;
                     left: 0;
                     top: 0;
+                    display: inline-flex;
+                    background-image: linear-gradient(277deg,#0090ff,#00d290);
 
                     .new-icon {
+                        color: $theme-white;
                     }
                 }
 
