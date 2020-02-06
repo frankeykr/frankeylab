@@ -1,9 +1,17 @@
 .global-navi {
+    margin-top: 100px;
+    margin-bottom: 30px;
+
     ul {
         display: flex;
 
         li {
             margin-right: 20px;
+
+            a {
+                font-size: 24px;
+                font-weight: 200;
+            }
         }
 
         li:last-child {
