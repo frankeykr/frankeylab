@@ -1,16 +1,64 @@
 footer {
     .container {
         display: flex;
+
         .col {
             flex: 1;
+            margin-right: 32px;
+
+            .title {
+                font-size: 18px;
+                font-weight: 400;
+                margin-bottom: 32px;
+                letter-spacing: 2px;
+            }
+
+            .portfolio-list {
+                &__item {
+                    border-bottom: 1px solid #f2f2f2;
+                    padding: 10px 5px;
+
+                    a {
+                        color: $theme__font-color__gray2;
+                        font-size: 14px;
+                        font-weight: 200;
+                    }
+                }
+
+                &__item:last-child {
+                    border-bottom: none;
+                } 
+            }
 
             #sb_instagram {
                 padding-bottom: 0 !important;
+
+                .sbi_header_link {
+                    .sbi_header_text {
+                        h3 {
+                            font-weight: 400;
+                        }
+    
+                        p {
+                            font-weight: 200;
+                        }
+                    }
+                    .sbi_header_img {
+                        .sbi_header_img_hover {
+                            background: rgba(255,255,255,.75);
+                        }
+                    }
+                }
+                
     
                 #sbi_load {
                     display: none;
                 }
             }
+        }
+
+        .col:last-child {
+            margin-right: 0;
         }
     }
     .widget-title {
@@ -20,7 +68,6 @@ footer {
     .copyright-container {
         display: flex;
         height: 90px;
-        border-top: 1px solid $theme-black;
         align-items: center;
         justify-content: center;
 
