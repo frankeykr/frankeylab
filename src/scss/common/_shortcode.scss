@@ -10,9 +10,37 @@
     &__link {
         display: flex;
         flex-direction: column;
+        margin-top: 24px;
 
         a {
-            font-size: 14px;
+            display: flex;
+            margin-bottom: 16px;
+
+            span {
+                color: $theme__font-color__emerald;
+                font-size: 14px;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &:hover {
+                .arrow {
+                    animation-name: bounceAlpha;
+                    animation-duration:1.4s;
+                    animation-iteration-count:infinite;
+                    animation-timing-function:linear;
+                }
+        
+                .arrow.primera {
+                    animation-name: bounceAlpha;
+                    animation-duration:1.4s;
+                    animation-delay:0.2s;
+                    animation-iteration-count:infinite;
+                    animation-timing-function:linear;
+                }
+            }
         }
     }
 }

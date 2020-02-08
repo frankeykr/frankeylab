@@ -17,9 +17,7 @@ get_header(); ?>
                             <span class="profile__name-container__name">FRANKEY</span>
                         </div>
                         <div class="profile__content-container">
-                            <div class="profile__content-container__content">
-                                <?php echo do_shortcode('[about]'); ?>
-                            </div>
+                            <?php echo do_shortcode('[about]'); ?>
                         </div>
                     </div>
                 </aside>

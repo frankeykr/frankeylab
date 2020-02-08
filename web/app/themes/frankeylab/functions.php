@@ -212,8 +212,24 @@ function add_about_code_short_code() {
             </p>
         </div>
         <div class="about__link">
-            <a href="<?= home_url()?>/#"><span>상세프로필</span></a>
-            <a href="<?= home_url()?>/#"><span>문의하기</span></a>
+            <a href="<?= home_url()?>/#">
+                <span>상세프로필</span>
+                <div class="arrow-container">
+                    <div class="arrow-box">
+                        <span class="arrow primera next "></span>
+                        <span class="arrow segunda next "></span>
+                    </div>
+                </div>
+            </a>
+            <a href="<?= home_url()?>/#">
+                <span>메일 문의하기</span>
+                <div class="arrow-container">
+                    <div class="arrow-box">
+                        <span class="arrow primera next "></span>
+                        <span class="arrow segunda next "></span>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
     <?php

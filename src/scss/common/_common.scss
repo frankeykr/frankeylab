@@ -52,9 +52,53 @@ body * {
     }
 }
 
+.arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    margin-left: 5px;
 
-.post-image-container {
-    &__image {
-        width: 100%;
+    .arrow-box {
+        position: absolute;
+        width: 100%; 
+        height: 100%;
+
+        .arrow {
+            position: absolute; 
+            bottom: 0;  
+            margin-left: 0; 
+            width: 100%; 
+            height: 100%;
+        }
+
+        .next {
+            &:before {
+                content: '';
+                display: block;
+                width: 6px;
+                height: 1px;
+                background: $theme__font-color__emerald;
+                transform: rotate(45deg);
+                position: absolute;
+                top: 5px;
+            }
+            &:after {
+                content: '';
+                display: block;
+                width: 6px;
+                height: 1px;
+                background: $theme__font-color__emerald;
+                transform: rotate(-45deg);
+                position: absolute;
+                bottom: 4px;
+            }
+        }
+
+        .segunda {
+            margin-left: 8px;
+        }
     }
 }

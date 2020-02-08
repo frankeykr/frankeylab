@@ -23,4 +23,14 @@
             font-size: 16px;
         }
     }
+
+    &__content-container {
+        .about {
+            &__link {
+                a {
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
 }
