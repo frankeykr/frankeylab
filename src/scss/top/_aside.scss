@@ -23,21 +23,4 @@
             font-size: 16px;
         }
     }
-
-    &__content-container {
-        margin-bottom: 32px;
-        
-        &__content {
-            font-size: 12px;
-        }
-    }
-
-    &__link-container {
-        display: flex;
-        flex-direction: column;
-
-        a {
-            text-align: right;
-        }
-    }
 }

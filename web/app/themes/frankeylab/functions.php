@@ -119,8 +119,8 @@ function change_posts_per_page($query) {
  /**
  * TOP PAGE에 넣는 숏 코드
  */
-add_shortcode('code_list', 'add_code_short_code');
-function add_code_short_code() {
+add_shortcode('code_list', 'add_code_list_code_short_code');
+function add_code_list_code_short_code() {
     ob_start();
     ?>
     <section class="post">
@@ -155,7 +155,7 @@ function add_code_short_code() {
                         </div>
                         <div class="post-list__item__title">
                             <a href="<?php the_permalink(); ?>" class="link-to-single-page">
-                                <h3 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h3>
+                                <h2 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h2>
                             </a>
                         </div>
                         <ul class="post-list__item__tags">
@@ -191,6 +191,31 @@ function add_code_short_code() {
             ?>
         </ul>
     </section>
+    <?php
+    return ob_get_clean();
+}
+
+
+ /**
+ * ABOUT 숏 코드
+ */
+add_shortcode('about', 'add_about_code_short_code');
+function add_about_code_short_code() {
+    ob_start();
+    ?>
+    <div class="about">
+        <div class="about__content">
+            <p>
+                블로그·어필리에이트·프로그래밍을 사랑합니다. 
+                신규 졸업자로 세부 섬에 취직 → 11개월 만에 퇴직 → 프리랜서 → 창업 → 창업 실패 → 블로그를 쓰다 → 
+                블로그 수익 7자릿수 달성. 평소에는 방콕을 중심으로 남국에 틀어박히면서 생활비는 5만 엔 정도로 살고 있습니다.
+            </p>
+        </div>
+        <div class="about__link">
+            <a href="<?= home_url()?>/#"><span>상세프로필</span></a>
+            <a href="<?= home_url()?>/#"><span>문의하기</span></a>
+        </div>
+    </div>
     <?php
     return ob_get_clean();
 }
