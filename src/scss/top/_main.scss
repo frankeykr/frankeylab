@@ -104,7 +104,12 @@
                     justify-content: center;
 
                     span {
+                        color: $theme__font-color__emerald;
                         font-size: 14px;
+                    }
+
+                    &:hover {
+                        @include arrow-animation
                     }
                 }
             }

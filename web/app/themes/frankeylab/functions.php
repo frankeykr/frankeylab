@@ -168,7 +168,6 @@ function add_code_list_code_short_code() {
                             } ?>
                         </ul>
                         <div class="post-list__item__image">
-                            
                             <div class="date-container">
                                 <span class="date">작성일 - <?php the_date('Y.n.j'); ?></span>
                             </div>
@@ -181,6 +180,12 @@ function add_code_list_code_short_code() {
                             <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
                             <a href="<?php the_permalink(); ?>" class="link">
                                 <span>READ MORE</span>
+                                <div class="arrow-container">
+                                    <div class="arrow-box">
+                                        <span class="arrow primera next"></span>
+                                        <span class="arrow segunda next"></span>
+                                    </div>
+                                </div>
                             </a>
                         </div>
                     </li>
@@ -212,21 +217,21 @@ function add_about_code_short_code() {
             </p>
         </div>
         <div class="about__link">
-            <a href="<?= home_url()?>/#">
+            <a class="link" href="<?= home_url()?>/#">
                 <span>상세프로필</span>
                 <div class="arrow-container">
                     <div class="arrow-box">
-                        <span class="arrow primera next "></span>
-                        <span class="arrow segunda next "></span>
+                        <span class="arrow primera next"></span>
+                        <span class="arrow segunda next"></span>
                     </div>
                 </div>
             </a>
-            <a href="<?= home_url()?>/#">
+            <a class="link" href="<?= home_url()?>/#">
                 <span>메일 문의하기</span>
                 <div class="arrow-container">
                     <div class="arrow-box">
-                        <span class="arrow primera next "></span>
-                        <span class="arrow segunda next "></span>
+                        <span class="arrow primera next"></span>
+                        <span class="arrow segunda next"></span>
                     </div>
                 </div>
             </a>

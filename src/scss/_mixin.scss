@@ -5,3 +5,20 @@
 @mixin sp-screen {
     @media (max-width: 767px) { @content; } 
 }
+
+@mixin arrow-animation {
+    .arrow {
+        animation-name: bounceAlpha;
+        animation-duration:1.4s;
+        animation-iteration-count:infinite;
+        animation-timing-function:linear;
+    }
+
+    .arrow.primera {
+        animation-name: bounceAlpha;
+        animation-duration:1.4s;
+        animation-delay:0.2s;
+        animation-iteration-count:infinite;
+        animation-timing-function:linear;
+    }
+}

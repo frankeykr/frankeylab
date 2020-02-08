@@ -12,7 +12,7 @@
         flex-direction: column;
         margin-top: 24px;
 
-        a {
+        .link {
             display: flex;
             margin-bottom: 16px;
 
@@ -26,20 +26,7 @@
             }
 
             &:hover {
-                .arrow {
-                    animation-name: bounceAlpha;
-                    animation-duration:1.4s;
-                    animation-iteration-count:infinite;
-                    animation-timing-function:linear;
-                }
-        
-                .arrow.primera {
-                    animation-name: bounceAlpha;
-                    animation-duration:1.4s;
-                    animation-delay:0.2s;
-                    animation-iteration-count:infinite;
-                    animation-timing-function:linear;
-                }
+                @include arrow-animation
             }
         }
     }
