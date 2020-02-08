@@ -32,6 +32,19 @@ footer {
                     cursor: pointer;
                     border-bottom: 1px solid #f2f2f2;
                     padding: 10px 5px;
+                    position: relative;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 1px;
+                        bottom: 0;
+                        background: $theme__font-color__black;
+                        transform: scale(0,1);
+                        transform-origin: right top;
+                        transition: transform .4s cubic-bezier(1,0,0,1);
+                    }
 
                     a {
                         color: $theme__font-color__gray2;
@@ -40,10 +53,13 @@ footer {
                     }
 
                     &:hover {
-                        border-bottom: 1px solid $theme__font-color__black;
-                        
                         a {
                             color: $theme__font-color__black;
+                        }
+
+                        &:before {
+                            transform: scale(1,1);
+                            transform-origin: left top;
                         }
                     }
                 }
