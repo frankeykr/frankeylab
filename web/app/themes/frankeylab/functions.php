@@ -9,8 +9,14 @@ function enqueue_styles_and_scripts() {
     wp_dequeue_style('parent-style'); // 부모 테마의 디폴트 스타일 시트를 불러오지 못하게 한다
     wp_enqueue_style('base-css', get_stylesheet_directory_uri() . '/dist/css/base.css');
     wp_enqueue_script('base-js', get_stylesheet_directory_uri() . '/dist/js/base.js', array(), false, true);
-
+    
+    if (is_post_type_archive('blog')) {
+        wp_enqueue_script('infinite-scroll', get_stylesheet_directory_uri() . '/dist/js/infinite_scroll.js', array(), false, true);
+    }
     if (is_post_type_archive('code')) {
+        wp_enqueue_script('infinite-scroll', get_stylesheet_directory_uri() . '/dist/js/infinite_scroll.js', array(), false, true);
+    }
+    if (is_post_type_archive('life')) {
         wp_enqueue_script('infinite-scroll', get_stylesheet_directory_uri() . '/dist/js/infinite_scroll.js', array(), false, true);
     }
 }
@@ -197,7 +203,13 @@ function menu_setup()
 */
 add_filter('next_posts_link_attributes', 'add_next_posts_link_class');
 function add_next_posts_link_class() {
+    if (is_post_type_archive('blog')) {
+        return 'id="archive__pagination-next" class="archive__pagination-next-class"';
+    }
     if (is_post_type_archive('code')) {
+        return 'id="archive__pagination-next" class="archive__pagination-next-class"';
+    }
+    if (is_post_type_archive('life')) {
         return 'id="archive__pagination-next" class="archive__pagination-next-class"';
     }
 }
@@ -211,7 +223,13 @@ function change_posts_per_page($query) {
     if (is_admin() || !$query->is_main_query()) {
         return;
     }
+    if (is_post_type_archive('blog')) {
+        $query->set('posts_per_page', 1);
+    }
     if (is_post_type_archive('code')) {
+        $query->set('posts_per_page', 1);
+    }
+    if (is_post_type_archive('life')) {
         $query->set('posts_per_page', 1);
     }
     return;
@@ -220,6 +238,87 @@ function change_posts_per_page($query) {
  /**
  * TOP PAGE에 넣는 숏 코드
  */
+add_shortcode('blog_list', 'add_blog_list_code_short_code');
+function add_blog_list_code_short_code() {
+    ob_start();
+    ?>
+    <section class="post">
+        <?php
+        $blogObject = new WP_Query(array(
+            'post_type' => 'blog',
+            'posts_per_page' => 3,
+            'order' => 'DESC',
+            'orderby' => 'date',
+        ));
+        ?>
+        <ul class="post-list">
+            <?php
+            if ($blogObject->have_posts()):
+                while ($blogObject->have_posts()):$blogObject->the_post();
+                    $blogImageUrl = "";
+                    if (has_post_thumbnail()) {
+                        $blogImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($blogObject->ID), 'large')[0];
+                    } else {
+                        $blogImageUrl = get_stylesheet_directory_uri() . "/image/dummy.jpg";
+                    }
+                    ?>
+                    <li class="post-list__item">
+                        <div class="post-list__item__new-icon">
+                            <?php
+                            $today = date_i18n('U');
+                            $postPublishDay = get_the_time('U');
+                            $dayDifference = ($today - $postPublishDay) / 86400;
+                            if ($dayDifference < 14) { ?>
+                                <span class="new-icon"></span>
+                            <?php } ?>
+                        </div>
+                        <div class="post-list__item__title">
+                            <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                                <h2 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h2>
+                            </a>
+                        </div>
+                        <ul class="post-list__item__tags">
+                            <?php
+                            $blogTags = get_the_terms($blogObject->ID, 'blog-tag');
+                            if ($blogTags) {
+                                foreach ($blogTags as $tag) {
+                                    echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
+                                }
+                            } ?>
+                        </ul>
+                        <div class="post-list__item__image">
+                            <div class="date-container">
+                                <span class="date">작성일 - <?php the_date('Y.n.j'); ?></span>
+                            </div>
+                            <div class="post-image-container">
+                                <img class="image" src="<?= $blogImageUrl; ?>"
+                                    alt="<?php the_title(); ?>">
+                            </div>
+                        </div>
+                        <div class="post-list__item__content">
+                            <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
+                            <a href="<?php the_permalink(); ?>" class="link">
+                                <span>READ MORE</span>
+                                <div class="arrow-container">
+                                    <div class="arrow-box">
+                                        <span class="arrow primera next"></span>
+                                        <span class="arrow segunda next"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                <?php
+                endwhile;
+            endif;
+            wp_reset_postdata();
+            ?>
+        </ul>
+    </section>
+    <?php
+    return ob_get_clean();
+}
+
 add_shortcode('code_list', 'add_code_list_code_short_code');
 function add_code_list_code_short_code() {
     ob_start();
@@ -228,7 +327,7 @@ function add_code_list_code_short_code() {
         <?php
         $codeObject = new WP_Query(array(
             'post_type' => 'code',
-            'posts_per_page' => 2,
+            'posts_per_page' => 3,
             'order' => 'DESC',
             'orderby' => 'date',
         ));
@@ -301,6 +400,86 @@ function add_code_list_code_short_code() {
     return ob_get_clean();
 }
 
+add_shortcode('life_list', 'add_life_list_code_short_code');
+function add_life_list_code_short_code() {
+    ob_start();
+    ?>
+    <section class="post">
+        <?php
+        $lifeObject = new WP_Query(array(
+            'post_type' => 'life',
+            'posts_per_page' => 3,
+            'order' => 'DESC',
+            'orderby' => 'date',
+        ));
+        ?>
+        <ul class="post-list">
+            <?php
+            if ($lifeObject->have_posts()):
+                while ($lifeObject->have_posts()):$lifeObject->the_post();
+                    $lifeImageUrl = "";
+                    if (has_post_thumbnail()) {
+                        $lifeImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($lifeObject->ID), 'large')[0];
+                    } else {
+                        $lifeImageUrl = get_stylesheet_directory_uri() . "/image/dummy.jpg";
+                    }
+                    ?>
+                    <li class="post-list__item">
+                        <div class="post-list__item__new-icon">
+                            <?php
+                            $today = date_i18n('U');
+                            $postPublishDay = get_the_time('U');
+                            $dayDifference = ($today - $postPublishDay) / 86400;
+                            if ($dayDifference < 14) { ?>
+                                <span class="new-icon"></span>
+                            <?php } ?>
+                        </div>
+                        <div class="post-list__item__title">
+                            <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                                <h2 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h2>
+                            </a>
+                        </div>
+                        <ul class="post-list__item__tags">
+                            <?php
+                            $lifeTags = get_the_terms($lifeObject->ID, 'life-tag');
+                            if ($lifeTags) {
+                                foreach ($lifeTags as $tag) {
+                                    echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
+                                }
+                            } ?>
+                        </ul>
+                        <div class="post-list__item__image">
+                            <div class="date-container">
+                                <span class="date">작성일 - <?php the_date('Y.n.j'); ?></span>
+                            </div>
+                            <div class="post-image-container">
+                                <img class="image" src="<?= $lifeImageUrl; ?>"
+                                    alt="<?php the_title(); ?>">
+                            </div>
+                        </div>
+                        <div class="post-list__item__content">
+                            <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
+                            <a href="<?php the_permalink(); ?>" class="link">
+                                <span>READ MORE</span>
+                                <div class="arrow-container">
+                                    <div class="arrow-box">
+                                        <span class="arrow primera next"></span>
+                                        <span class="arrow segunda next"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                <?php
+                endwhile;
+            endif;
+            wp_reset_postdata();
+            ?>
+        </ul>
+    </section>
+    <?php
+    return ob_get_clean();
+}
 
  /**
  * ABOUT 숏 코드

@@ -1,4 +1,6 @@
 .post {
+    margin-bottom: 60px;
+
     .post-list {
         &__item {
             position: relative;
@@ -119,4 +121,8 @@
             margin-bottom: 0;
         }
     }
+}
+
+.post:last-child {
+    margin-bottom: 0;
 }
