@@ -14,7 +14,7 @@ get_header(); ?>
                             src="<?= get_stylesheet_directory_uri()?>/image/profile.png" alt="profile-img">
                         </div>
                         <div class="profile__name-container">
-                            <span class="profile__name-container__name">TEST</span>
+                            <span class="profile__name-container__name">FRANKEY</span>
                         </div>
                         <div class="profile__content-container">
                             <p class="profile__content-container__content">

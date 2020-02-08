@@ -1,7 +1,27 @@
 .post {
     .post-list {
         &__item {
+            position: relative;
+            border-radius: 20px;
+            padding: 32px;
             margin-bottom: 120px;
+            box-shadow: 3px 0 21px -2px rgba(0, 0, 0, 0.16);
+
+            &__new-icon {
+                position: absolute;
+                left: 15px;
+                top: 15px;
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background-color: $theme-red;
+
+                .new-icon {
+                    color: $theme-white;
+                    font-size: 16px;
+                }
+            }
 
             &__title {
                 text-align: center;
@@ -25,8 +45,9 @@
                 .tag {
                     display: inline-flex;
                     background-image: linear-gradient(277deg,#42E695,#3BB2B8);
-                    padding: 2px 4px;
+                    padding: 4px 8px;
                     margin-right: 10px;
+                    border-radius: 8px;
 
                     span {
                         font-size: 14px;
@@ -42,20 +63,6 @@
             &__image {
                 position: relative;
 
-                .new-icon-container {
-                    position: absolute;
-                    left: 0;
-                    top: -20px;
-                    display: inline-flex;
-                    padding: 2px 5px;
-                    background-color: $theme-red;
-
-                    .new-icon {
-                        color: $theme-white;
-                        font-size: 16px;
-                    }
-                }
-
                 .date-container {
                     position: absolute;
                     right: 0;
@@ -70,6 +77,9 @@
                 }
 
                 .post-image-container {
+                    margin-left: -32px;
+                    margin-right: -32px;
+
                     .image {
                         width: 100%;
                         height: 350px;

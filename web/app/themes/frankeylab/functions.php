@@ -144,7 +144,15 @@ function add_code_short_code() {
                     }
                     ?>
                     <li class="post-list__item">
-                            
+                        <div class="post-list__item__new-icon">
+                            <?php
+                            $today = date_i18n('U');
+                            $postPublishDay = get_the_time('U');
+                            $dayDifference = ($today - $postPublishDay) / 86400;
+                            if ($dayDifference < 14) { ?>
+                                <span class="new-icon"></span>
+                            <?php } ?>
+                        </div>
                         <div class="post-list__item__title">
                             <a href="<?php the_permalink(); ?>" class="link-to-single-page">
                                 <h3 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h3>
@@ -160,17 +168,9 @@ function add_code_short_code() {
                             } ?>
                         </ul>
                         <div class="post-list__item__image">
-                            <div class="new-icon-container">
-                                <?php
-                                $today = date_i18n('U');
-                                $postPublishDay = get_the_time('U');
-                                $dayDifference = ($today - $postPublishDay) / 86400;
-                                if ($dayDifference < 14) { ?>
-                                    <p class="new-icon">NEW!</p>
-                                <?php } ?>
-                            </div>
+                            
                             <div class="date-container">
-                                <span class="date"><?php the_date('Y.n.j'); ?></span>
+                                <span class="date">작성일 - <?php the_date('Y.n.j'); ?></span>
                             </div>
                             <div class="post-image-container">
                                 <img class="image" src="<?= $codeImageUrl; ?>"
