@@ -23,10 +23,10 @@ function remove_menu() {
 }
 
 /**
- * 커스텀포스트 기능 추가
+ * 커스텀포스트 추가
  */
-add_action('init', 'add_custom_post_type');
-function add_custom_post_type() {
+add_action('init', 'add_code_custom_post_type');
+function add_code_custom_post_type() {
     $codeParams = array(
         'labels' => array(
             'name' => '코드',
@@ -56,6 +56,68 @@ function add_custom_post_type() {
     register_post_type('code', $codeParams);
 }
 
+add_action('init', 'add_blog_custom_post_type');
+function add_blog_custom_post_type() {
+    $blogParams = array(
+        'labels' => array(
+            'name' => '블로그',
+            'singular_name' => '블로그',
+            'add_new' => '블로그 추가',
+            'add_new_item' => '신규 블로그 추가',
+            'edit_item' => '편집',
+            'new_item' => '신착 블로그',
+            'all_items' => '모든 블로그',
+            'view_item' => '블로그 보기',
+            'search_items' => '블로그 검색',
+            'not_found' => '찾을 수 없습니다',
+            'not_found_in_trash' => '휴지통 안에 없습니다',
+            'enter_title_here' => '블로그 이름을 입력',
+        ),
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'capability_type' => 'post',
+        'has_archive' => true,
+        'hierarchical' => false,
+        "supports" => array("title", "editor", "thumbnail"),
+        'menu_position' => 23,
+    );
+    register_post_type('blog', $blogParams);
+}
+
+add_action('init', 'add_life_custom_post_type');
+function add_life_custom_post_type() {
+    $lifeParams = array(
+        'labels' => array(
+            'name' => '라이프',
+            'singular_name' => '라이프',
+            'add_new' => '라이프 추가',
+            'add_new_item' => '신규 라이프 추가',
+            'edit_item' => '편집',
+            'new_item' => '신착 라이프',
+            'all_items' => '모든 라이프',
+            'view_item' => '라이프 보기',
+            'search_items' => '라이프 검색',
+            'not_found' => '찾을 수 없습니다',
+            'not_found_in_trash' => '휴지통 안에 없습니다',
+            'enter_title_here' => '라이프 이름을 입력',
+        ),
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'capability_type' => 'post',
+        'has_archive' => true,
+        'hierarchical' => false,
+        "supports" => array("title", "editor", "thumbnail"),
+        'menu_position' => 24,
+    );
+    register_post_type('life', $lifeParams);
+}
+
 /**
  * 커스텀포스트에 태그 기능 추가
  */
@@ -77,6 +139,45 @@ register_taxonomy(
         )
     )
 );
+
+register_taxonomy(
+    'blog-tag',
+    'blog',
+    array(
+        'hierarchical' => false,
+        'label' => '블로그 태그',
+        'singular_label' => '블로그 태그',
+        'public' => true,
+        'query_var' => true,
+        'has_archive' => false,
+        'rewrite' => true,
+        'show_ui' => true,
+        'labels' => array(
+            'add_new_item' => '블로그 태그 추가',
+            'search_items' => '블로그 태그 검색',
+        )
+    )
+);
+
+register_taxonomy(
+    'life-tag',
+    'life',
+    array(
+        'hierarchical' => false,
+        'label' => '라이프 태그',
+        'singular_label' => '라이프 태그',
+        'public' => true,
+        'query_var' => true,
+        'has_archive' => false,
+        'rewrite' => true,
+        'show_ui' => true,
+        'labels' => array(
+            'add_new_item' => '라이프 태그 추가',
+            'search_items' => '라이프 태그 검색',
+        )
+    )
+);
+
 
 /**
  * 관리화면 헤더 메뉴에 체크박스 추가
@@ -127,7 +228,7 @@ function add_code_list_code_short_code() {
         <?php
         $codeObject = new WP_Query(array(
             'post_type' => 'code',
-            'posts_per_page' => 4,
+            'posts_per_page' => 2,
             'order' => 'DESC',
             'orderby' => 'date',
         ));
