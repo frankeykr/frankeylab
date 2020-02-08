@@ -6,8 +6,3 @@
 <?php wp_footer(); ?>
 </body>
 </html>
-
-<!-- 
-<div class="center-con">
-    
-</div> -->
