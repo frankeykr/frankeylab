@@ -243,9 +243,6 @@ function add_blog_list_code_short_code() {
     ob_start();
     ?>
     <section class="post">
-        <div class="post-title">
-            <h1 class="title">Blog</h1>
-        </div>
         <?php
         $blogObject = new WP_Query(array(
             'post_type' => 'blog',
@@ -327,9 +324,6 @@ function add_code_list_code_short_code() {
     ob_start();
     ?>
     <section class="post">
-        <div class="post-title">
-            <h1 class="title">Code</h1>
-        </div>
         <?php
         $codeObject = new WP_Query(array(
             'post_type' => 'code',
@@ -411,9 +405,6 @@ function add_life_list_code_short_code() {
     ob_start();
     ?>
     <section class="post">
-        <div class="post-title">
-            <h1 class="title">Life</h1>
-        </div>
         <?php
         $lifeObject = new WP_Query(array(
             'post_type' => 'life',
