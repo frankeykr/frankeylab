@@ -56,7 +56,7 @@
                                                 $eachPostTags = get_the_terms($post->ID, $postType . '-tag');
                                                 if ($eachPostTags) {
                                                     foreach ($eachPostTags as $tag) {
-                                                        echo '<li class="each-post-tags-container__tag"><p>#' . esc_html($tag->name) . '</p></li>';
+                                                        echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
                                                     }
                                                 } ?>
                                             </ul>

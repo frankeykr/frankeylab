@@ -3,11 +3,11 @@
 @import "mixin";
 @import "vars";
 
+@import "about";
 @import "./common/common";
 @import "./common/header";
+@import "./common/main";
 @import "./common/footer";
 @import "./common/arrow";
-@import "./common/shortcode";
 
 @import "./top/aside";
-@import "./top/main";
