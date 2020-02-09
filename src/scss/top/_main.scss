@@ -32,9 +32,9 @@
                 padding: 0 16px;
                 
                 .title {
-                    font-size: 25px;
-                    font-weight: normal;
-                    line-height: 2;
+                    font-size: 30px;
+                    font-weight: 700;
+                    line-height: 1.5;
                 }
             }
 
@@ -43,6 +43,7 @@
                 align-content: center;
                 justify-content: center;
                 margin-bottom: 48px;
+                padding: 8px 0;
 
                 .tag {
                     display: inline-flex;
@@ -52,7 +53,7 @@
                     border-radius: 2px;
 
                     span {
-                        font-size: 14px;
+                        font-size: 12px;
                         color: $theme__font-color__white;
                     }
                 }
@@ -91,6 +92,8 @@
             }
 
             &__content {
+                display: flex;
+                flex-direction: column;
                 padding: 0 16px;
                 margin-top: 24px;
 
@@ -101,17 +104,31 @@
                 }
 
                 .link {
-                    margin-top: 24px;
-                    display: flex;
-                    justify-content: center;
+                    padding: 24px 0;
+                    display: inline-flex;
+                    margin: 0 auto;
 
                     span {
-                        color: $theme__font-color__emerald;
+                        color: $theme__font-color__gray;
                         font-size: 14px;
+                        font-weight: 200;
                     }
 
                     &:hover {
                         @include arrow-animation
+                    }
+
+                    .arrow-container {
+                        .arrow-box {
+                            .next {
+                                &:before {
+                                    background: $theme__font-color__gray;
+                                }
+                                &:after {
+                                    background: $theme__font-color__gray;
+                                }
+                            }
+                        }
                     }
                 }
             }

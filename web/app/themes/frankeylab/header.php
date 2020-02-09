@@ -9,8 +9,10 @@
 
 <header>
     <div class="site-header">
-        <div class="logo">
-            <p>FRANKEY<br>LAB.</p>
+        <div class="logo-text">
+            <a href="<?= home_url()?>">
+                <p>FRANKEY<br>LAB.</p>
+            </a>
         </div>
         <?php
         wp_nav_menu( array(
