@@ -269,7 +269,7 @@ function add_blog_list_code_short_code() {
                             $postPublishDay = get_the_time('U');
                             $dayDifference = ($today - $postPublishDay) / 86400;
                             if ($dayDifference < 14) { ?>
-                                <span class="new-icon"></span>
+                                <span class="new-icon">NEW!</span>
                             <?php } ?>
                         </div>
                         <div class="post-list__item__title">
@@ -277,7 +277,18 @@ function add_blog_list_code_short_code() {
                                 <h2 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h2>
                             </a>
                         </div>
-                        <ul class="post-list__item__tags">
+                        <div class="post-list__item__date">
+                            <span class="date"><?php the_date('n/j'); ?></span>
+                        </div>
+                        <div class="post-list__item__image">
+                            <div class="year-container">
+                                <span class="year"><?php the_time('Y'); ?></span>
+                            </div>
+                            <div class="post-image-container">
+                                <img class="image" src="<?= $blogImageUrl; ?>"
+                                    alt="<?php the_title(); ?>">
+                            </div>
+                            <ul class="tags-container">
                             <?php
                             $blogTags = get_the_terms($blogObject->ID, 'blog-tag');
                             if ($blogTags) {
@@ -285,15 +296,7 @@ function add_blog_list_code_short_code() {
                                     echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
                                 }
                             } ?>
-                        </ul>
-                        <div class="post-list__item__image">
-                            <div class="date-container">
-                                <span class="date">작성일 - <?php the_date('Y.n.j'); ?></span>
-                            </div>
-                            <div class="post-image-container">
-                                <img class="image" src="<?= $blogImageUrl; ?>"
-                                    alt="<?php the_title(); ?>">
-                            </div>
+                            </ul>
                         </div>
                         <div class="post-list__item__content">
                             <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
@@ -350,7 +353,7 @@ function add_code_list_code_short_code() {
                             $postPublishDay = get_the_time('U');
                             $dayDifference = ($today - $postPublishDay) / 86400;
                             if ($dayDifference < 14) { ?>
-                                <span class="new-icon"></span>
+                                <span class="new-icon">NEW!</span>
                             <?php } ?>
                         </div>
                         <div class="post-list__item__title">
@@ -358,7 +361,18 @@ function add_code_list_code_short_code() {
                                 <h2 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h2>
                             </a>
                         </div>
-                        <ul class="post-list__item__tags">
+                        <div class="post-list__item__date">
+                            <span class="date"><?php the_date('n/j'); ?></span>
+                        </div>
+                        <div class="post-list__item__image">
+                            <div class="year-container">
+                                <span class="year"><?php the_time('Y'); ?></span>
+                            </div>
+                            <div class="post-image-container">
+                                <img class="image" src="<?= $codeImageUrl; ?>"
+                                    alt="<?php the_title(); ?>">
+                            </div>
+                            <ul class="tags-container">
                             <?php
                             $codeTags = get_the_terms($codeObject->ID, 'code-tag');
                             if ($codeTags) {
@@ -366,15 +380,7 @@ function add_code_list_code_short_code() {
                                     echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
                                 }
                             } ?>
-                        </ul>
-                        <div class="post-list__item__image">
-                            <div class="date-container">
-                                <span class="date">작성일 - <?php the_date('Y.n.j'); ?></span>
-                            </div>
-                            <div class="post-image-container">
-                                <img class="image" src="<?= $codeImageUrl; ?>"
-                                    alt="<?php the_title(); ?>">
-                            </div>
+                            </ul>
                         </div>
                         <div class="post-list__item__content">
                             <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
@@ -431,7 +437,7 @@ function add_life_list_code_short_code() {
                             $postPublishDay = get_the_time('U');
                             $dayDifference = ($today - $postPublishDay) / 86400;
                             if ($dayDifference < 14) { ?>
-                                <span class="new-icon"></span>
+                                <span class="new-icon">NEW!</span>
                             <?php } ?>
                         </div>
                         <div class="post-list__item__title">
@@ -439,7 +445,18 @@ function add_life_list_code_short_code() {
                                 <h2 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h2>
                             </a>
                         </div>
-                        <ul class="post-list__item__tags">
+                        <div class="post-list__item__date">
+                            <span class="date"><?php the_date('n/j'); ?></span>
+                        </div>
+                        <div class="post-list__item__image">
+                            <div class="year-container">
+                                <span class="year"><?php the_time('Y'); ?></span>
+                            </div>
+                            <div class="post-image-container">
+                                <img class="image" src="<?= $lifeImageUrl; ?>"
+                                    alt="<?php the_title(); ?>">
+                            </div>
+                            <ul class="tags-container">
                             <?php
                             $lifeTags = get_the_terms($lifeObject->ID, 'life-tag');
                             if ($lifeTags) {
@@ -447,15 +464,7 @@ function add_life_list_code_short_code() {
                                     echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
                                 }
                             } ?>
-                        </ul>
-                        <div class="post-list__item__image">
-                            <div class="date-container">
-                                <span class="date">작성일 - <?php the_date('Y.n.j'); ?></span>
-                            </div>
-                            <div class="post-image-container">
-                                <img class="image" src="<?= $lifeImageUrl; ?>"
-                                    alt="<?php the_title(); ?>">
-                            </div>
+                            </ul>
                         </div>
                         <div class="post-list__item__content">
                             <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
