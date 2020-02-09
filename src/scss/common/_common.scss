@@ -53,3 +53,9 @@ body * {
         }
     }
 }
+
+.post-image-container {
+    &__image {
+        width: 100%;
+    }
+}
