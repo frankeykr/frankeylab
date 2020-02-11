@@ -531,6 +531,14 @@ function add_about_code_short_code() {
 }
 
 /**
+ * br 태그 숏코드
+ */
+add_shortcode( 'br', 'line_break_shortcode' );
+function line_break_shortcode() {
+    return '<br />';
+}
+
+/**
  * 상세 페이지에서 페이지네이션을 출력하는 함수
  */
 function single_page_pagination() {

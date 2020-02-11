@@ -2,6 +2,8 @@
     max-width: 808px;
     margin: 0 auto;
     flex-direction: column;
+    padding-top: 100px;
+    padding-bottom: 200px;
 
     .single-page {
         padding-left: 64px;
@@ -13,10 +15,13 @@
             .title {
                 margin-bottom: 40px;
                 font-size: 45px;
+                line-height: 1.5;
+                letter-spacing: -1.5px;
             }
 
             .date {
-
+                color: $theme__font-color__gray2;
+                font-size: 14px;
             }
         }
 
@@ -35,7 +40,9 @@
 
                 .tag {
                     margin-right: 8px;
+
                     p {
+                        color: $theme__font-color__gray;
                         font-size: 10px;
                     }
                 }
@@ -48,6 +55,87 @@
 
         &__content {
             margin-top: 40px;
+            font-size: 16px;
+            line-height: 2.4;
+            letter-spacing: 1px;
+            color: $theme__font-color__gray2;
+
+            a {
+                color: #4773BA;
+
+                &:hover {
+                    border-bottom: 1px solid #4773BA;
+
+                    @include sp-screen {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+            h2 {
+                color: $theme__font-color__gray3;
+                font-size: 32px;
+                margin-bottom: 16px;
+            }
+
+            h3 {
+                color: $theme__font-color__gray3;
+                font-size: 20px;
+                margin-bottom: 8px;
+            }
+
+            strong {
+                font-weight: 400;
+                line-height: 2;
+                letter-spacing: 1px;
+                background-color: #fdf487;
+                color: $theme__font-color__gray2;
+            }
+
+            .code-block {
+                margin: 32px 0;
+                line-height: 1.5;
+
+                .CodeMirror-code {
+                    padding: 16px;
+                }
+            }
+        }
+    }
+
+    .single-page-pagination {
+        display: flex;
+        margin-top: 100px;
+        padding-left: 64px;
+        padding-right: 64px;
+
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .previous-page {
+            flex: 1;
+
+            &__link {
+                display: inline-block;
+
+                .pagination-container {
+                    padding-right: 24px;
+                }
+            }
+        }
+
+        .next-page {
+            flex: 1;
+
+            &__link {
+                display: inline-block;
+
+                .pagination-container {
+                    padding-left: 24px;
+                }
+            }
         }
     }
 }
