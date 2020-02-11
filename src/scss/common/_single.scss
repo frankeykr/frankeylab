@@ -9,8 +9,16 @@
         padding-left: 64px;
         padding-right: 64px;
 
+        @include sp-screen {
+            padding: 0;
+        }
+
         &__title-and-date {
-            margin-bottom: 40px;
+            margin: 0 -64px 40px;
+
+            @include sp-screen {
+                margin: 0;
+            }
 
             .title {
                 margin-bottom: 40px;
@@ -29,6 +37,11 @@
             position: relative;
             margin-left: -64px;
             margin-right: -64px;
+
+            @include sp-screen {
+                margin-left: -16px;
+                margin-right: -16px;
+            }
 
             &__tags {
                 display: flex;
