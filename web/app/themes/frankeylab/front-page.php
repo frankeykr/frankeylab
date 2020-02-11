@@ -8,7 +8,7 @@ get_header(); ?>
                     <?php the_content(); ?>
                 </article>
                 <aside class="sidebar front-page__sidebar">
-                    <div class="profile">
+                    <div class="sidebar-profile">
                         <div class="profile__image-container">
                             <img class="profile__image-container__image" 
                             src="<?= get_stylesheet_directory_uri()?>/image/profile.jpeg" alt="profile-img">

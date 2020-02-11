@@ -12,7 +12,10 @@
                 }
                 ?>
                 <div class="content archive-page">
-                    <h1 class="archive-page-title"><?= get_post_type($post); ?></h1>
+                    <!-- <h1 class="archive-page-title"><?= get_post_type($post); ?></h1>
+                    <div class="archive-page__selected-tag">
+                        <p class="selected-tag"><span>#<?= $currentSelectedTagName; ?></span></p>
+                    </div> -->
                     <div class="post archive-page__posts">
                         <ul class="post-list">
                             <?php
@@ -86,10 +89,7 @@
                 </div>
 
                 <aside class="sidebar">
-                    <div class="archive-page__selected-tag">
-                        <p class="selected-tag"><span><?= $currentSelectedTagName; ?></span> ← 검색결과</p>
-                    </div>
-                    <div class="archive-page__tags">
+                    <div class="sidebar-tags">
                         <ul class="tag-list">
                             <?php
                             $isTheTagSelected = '';
@@ -98,7 +98,7 @@
                             } ?>
                             <li class="tag-list__item <?= $isTheTagSelected; ?>">
                                 <a href="<?= get_post_type_archive_link($postType); ?>" class="tag-link">
-                                    <p>ALL</p>
+                                    <p>전체</p>
                                 </a>
                             </li>
                             <?php

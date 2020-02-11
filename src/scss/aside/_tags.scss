@@ -1,0 +1,27 @@
+.sidebar-tags {
+    padding-top: 70px;
+
+    .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+        &__item {
+            margin: 0 2px 4px;
+            padding: 1px 5px;
+
+            p {
+                color: $theme__font-color__gray;
+                font-size: 12px;
+            }
+        }
+
+        .current-selected-tag {
+            background-color: $theme__font-color__gray2;
+            
+            p {
+                color: $theme__font-color__white;
+            }
+        }
+    }
+}
