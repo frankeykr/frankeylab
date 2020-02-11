@@ -9,14 +9,14 @@ get_header(); ?>
                 </article>
                 <aside class="sidebar front-page__sidebar">
                     <div class="sidebar-profile">
-                        <div class="profile__image-container">
-                            <img class="profile__image-container__image" 
+                        <div class="sidebar-profile__image-container">
+                            <img class="sidebar-profile__image-container__image" 
                             src="<?= get_stylesheet_directory_uri()?>/image/profile.jpeg" alt="profile-img">
                         </div>
-                        <div class="profile__name-container">
-                            <span class="profile__name-container__name">FRANKEY</span>
+                        <div class="sidebar-profile__name-container">
+                            <span class="sidebar-profile__name-container__name">FRANKEY</span>
                         </div>
-                        <div class="profile__content-container">
+                        <div class="sidebar-profile__content-container">
                             <?php echo do_shortcode('[about]'); ?>
                         </div>
                     </div>
