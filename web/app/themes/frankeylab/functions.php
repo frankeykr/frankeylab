@@ -535,7 +535,7 @@ function add_about_code_short_code() {
  */
 function single_page_pagination() {
     ?>
-    <div class="single-page-pagination animate-transform">
+    <div class="single-page-pagination">
         <?php
         $previous_post = get_previous_post();
         $next_post = get_next_post();
