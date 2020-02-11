@@ -51,6 +51,13 @@ body * {
         max-width: 300px;
         padding-left: 30px;
         margin-left: 16px;
+
+        @include sp-screen {
+            width: 100%;
+            max-width: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
     }
 }
 

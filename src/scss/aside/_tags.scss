@@ -1,10 +1,18 @@
 .sidebar-tags {
     padding-top: 70px;
 
+    @include sp-screen {
+        padding-top: 0;
+    }
+    
     .tag-list {
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
+
+        @include sp-screen {
+            justify-content: flex-start;
+        }
 
         &__item {
             margin: 0 2px 4px;
