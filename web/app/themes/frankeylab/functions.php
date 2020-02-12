@@ -456,6 +456,90 @@ function add_code_list_code_short_code() {
     return ob_get_clean();
 }
 
+add_shortcode('japan_list', 'add_japan_list_code_short_code');
+function add_japan_list_code_short_code() {
+    ob_start();
+    ?>
+    <section class="post">
+        <?php
+        $japanObject = new WP_Query(array(
+            'post_type' => 'japan',
+            'posts_per_page' => 3,
+            'order' => 'DESC',
+            'orderby' => 'date',
+        ));
+        ?>
+        <ul class="post-list">
+            <?php
+            if ($japanObject->have_posts()):
+                while ($japanObject->have_posts()):$japanObject->the_post();
+                    $japanImageUrl = "";
+                    if (has_post_thumbnail()) {
+                        $japanImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($japanObject->ID), 'large')[0];
+                    } else {
+                        $japanImageUrl = get_stylesheet_directory_uri() . "/image/dummy.jpg";
+                    }
+                    ?>
+                    <li class="post-list__item">
+                        <div class="post-list__item__new-icon">
+                            <?php
+                            $today = date_i18n('U');
+                            $postPublishDay = get_the_time('U');
+                            $dayDifference = ($today - $postPublishDay) / 86400;
+                            if ($dayDifference < 14) { ?>
+                                <span class="new-icon">NEW!</span>
+                            <?php } ?>
+                        </div>
+                        <div class="post-list__item__title">
+                            <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                                <h2 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h2>
+                            </a>
+                        </div>
+                        <div class="post-list__item__date">
+                            <span class="date"><?php the_date('n/j'); ?></span>
+                        </div>
+                        <div class="post-list__item__image">
+                            <div class="year-container">
+                                <span class="year"><?php the_time('Y'); ?></span>
+                            </div>
+                            <div class="post-image-container">
+                                <img class="image" src="<?= $japanImageUrl; ?>"
+                                    alt="<?php the_title(); ?>">
+                            </div>
+                            <ul class="tags-container">
+                            <?php
+                            $japanTags = get_the_terms($japanObject->ID, 'japan-tag');
+                            if ($japanTags) {
+                                foreach ($japanTags as $tag) {
+                                    echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
+                                }
+                            } ?>
+                            </ul>
+                        </div>
+                        <div class="post-list__item__content">
+                            <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
+                            <a href="<?php the_permalink(); ?>" class="link">
+                                <span>READ MORE</span>
+                                <div class="arrow-container">
+                                    <div class="arrow-box">
+                                        <span class="arrow primera next"></span>
+                                        <span class="arrow segunda next"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                <?php
+                endwhile;
+            endif;
+            wp_reset_postdata();
+            ?>
+        </ul>
+    </section>
+    <?php
+    return ob_get_clean();
+}
+
 add_shortcode('life_list', 'add_life_list_code_short_code');
 function add_life_list_code_short_code() {
     ob_start();
