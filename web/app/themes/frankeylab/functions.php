@@ -93,6 +93,37 @@ function add_blog_custom_post_type() {
     register_post_type('blog', $blogParams);
 }
 
+add_action('init', 'add_japan_custom_post_type');
+function add_japan_custom_post_type() {
+    $japanParams = array(
+        'labels' => array(
+            'name' => '일본',
+            'singular_name' => '일본',
+            'add_new' => '일본 추가',
+            'add_new_item' => '신규 일본 추가',
+            'edit_item' => '편집',
+            'new_item' => '신착 일본',
+            'all_items' => '모든 일본',
+            'view_item' => '일본 보기',
+            'search_items' => '일본 검색',
+            'not_found' => '찾을 수 없습니다',
+            'not_found_in_trash' => '휴지통 안에 없습니다',
+            'enter_title_here' => '일본 이름을 입력',
+        ),
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'capability_type' => 'post',
+        'has_archive' => true,
+        'hierarchical' => false,
+        "supports" => array("title", "editor", "thumbnail"),
+        'menu_position' => 24,
+    );
+    register_post_type('japan', $japanParams);
+}
+
 add_action('init', 'add_life_custom_post_type');
 function add_life_custom_post_type() {
     $lifeParams = array(
@@ -119,7 +150,7 @@ function add_life_custom_post_type() {
         'has_archive' => true,
         'hierarchical' => false,
         "supports" => array("title", "editor", "thumbnail"),
-        'menu_position' => 24,
+        'menu_position' => 25,
     );
     register_post_type('life', $lifeParams);
 }
@@ -161,6 +192,25 @@ register_taxonomy(
         'labels' => array(
             'add_new_item' => '블로그 태그 추가',
             'search_items' => '블로그 태그 검색',
+        )
+    )
+);
+
+register_taxonomy(
+    'japan-tag',
+    'japan',
+    array(
+        'hierarchical' => false,
+        'label' => '일본 태그',
+        'singular_label' => '일본 태그',
+        'public' => true,
+        'query_var' => true,
+        'has_archive' => false,
+        'rewrite' => true,
+        'show_ui' => true,
+        'labels' => array(
+            'add_new_item' => '일본 태그 추가',
+            'search_items' => '일본 태그 검색',
         )
     )
 );
