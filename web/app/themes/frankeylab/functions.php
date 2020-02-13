@@ -58,6 +58,7 @@ function add_code_custom_post_type() {
         'hierarchical' => false,
         "supports" => array("title", "editor", "thumbnail"),
         'menu_position' => 22,
+        'show_in_rest' => true,
     );
     register_post_type('code', $codeParams);
 }
@@ -89,6 +90,7 @@ function add_blog_custom_post_type() {
         'hierarchical' => false,
         "supports" => array("title", "editor", "thumbnail"),
         'menu_position' => 23,
+        'show_in_rest' => true,
     );
     register_post_type('blog', $blogParams);
 }
@@ -120,6 +122,7 @@ function add_japan_custom_post_type() {
         'hierarchical' => false,
         "supports" => array("title", "editor", "thumbnail"),
         'menu_position' => 24,
+        'show_in_rest' => true,
     );
     register_post_type('japan', $japanParams);
 }
@@ -151,6 +154,7 @@ function add_life_custom_post_type() {
         'hierarchical' => false,
         "supports" => array("title", "editor", "thumbnail"),
         'menu_position' => 25,
+        'show_in_rest' => true,
     );
     register_post_type('life', $lifeParams);
 }
@@ -170,6 +174,7 @@ register_taxonomy(
         'has_archive' => false,
         'rewrite' => true,
         'show_ui' => true,
+        'show_in_rest' => true,
         'labels' => array(
             'add_new_item' => '코드 태그 추가',
             'search_items' => '코드 태그 검색',
@@ -189,6 +194,7 @@ register_taxonomy(
         'has_archive' => false,
         'rewrite' => true,
         'show_ui' => true,
+        'show_in_rest' => true,
         'labels' => array(
             'add_new_item' => '블로그 태그 추가',
             'search_items' => '블로그 태그 검색',
@@ -208,6 +214,7 @@ register_taxonomy(
         'has_archive' => false,
         'rewrite' => true,
         'show_ui' => true,
+        'show_in_rest' => true,
         'labels' => array(
             'add_new_item' => '일본 태그 추가',
             'search_items' => '일본 태그 검색',
@@ -227,6 +234,7 @@ register_taxonomy(
         'has_archive' => false,
         'rewrite' => true,
         'show_ui' => true,
+        'show_in_rest' => true,
         'labels' => array(
             'add_new_item' => '라이프 태그 추가',
             'search_items' => '라이프 태그 검색',
