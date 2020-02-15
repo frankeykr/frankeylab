@@ -105,13 +105,9 @@
                 color: $theme__font-color__gray2;
             }
 
-            .code-block {
-                margin: 32px 0;
-                line-height: 1.5;
-
-                .CodeMirror-code {
-                    padding: 16px;
-                }
+            ol.EnlighterJS, 
+            ul.EnlighterJS {
+                margin: 20px 0;
             }
         }
     }
