@@ -5,7 +5,9 @@ get_header(); ?>
         <main id="main" class="site-main" role="main">
             <div class="content-wrap front-page">
                 <article class="content">
-                    <?php the_content(); ?>
+                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                        <?php the_content(); ?>
+                    <?php endwhile; endif; ?>
                 </article>
                 <aside class="sidebar front-page__sidebar">
                     <div class="sidebar-profile">
