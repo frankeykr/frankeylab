@@ -42,6 +42,7 @@ img {
     padding-bottom: 100px;
 
     @include sp-screen {
+        padding-top: 0;
         flex-direction: column-reverse;
     }
 
