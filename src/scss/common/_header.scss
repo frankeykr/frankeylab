@@ -3,7 +3,12 @@
     align-items: center;
     padding-top: 60px;
     padding-bottom: 50px;
-    position: relative;    
+    position: relative;
+    
+    @include sp-screen {
+        padding-top: 30px;
+        padding-bottom: 0;
+    }
 }
 
 .logo-text {
