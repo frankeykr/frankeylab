@@ -31,18 +31,37 @@
 }
 
 .hamburger-menu {
-    width: 40px;
-    height: 40px;
-    background-color: black;
+    width: 30px;
+    height: 20px;
+    // background-color: black;
     position: fixed;
     top: 0;
     right: 0;
-    margin: 16px;
+    margin: 20px 16px;
     z-index: 100;
     display: none;
 
     @include sp-screen {
         display: block;
+    }
+
+    span {
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        border-radius: 50px;
+        background-color: $theme-black;
+        transition: 600ms cubic-bezier(0.11, 0.45, 0.54, 0.91);
+    }
+
+    span:nth-of-type(2) {
+        width: 80%;
+        top: 8px;
+        right: 0;
+    }
+
+    span:nth-of-type(3) {
+        bottom: 0;
     }
 }
 
@@ -138,6 +157,24 @@
 }
 
 .site-header.is-active {
+    .hamburger-menu {
+        span {
+            width: 80%;
+            left: 3px;
+
+            transition: 600ms cubic-bezier(0.11, 0.45, 0.54, 0.91);
+        }
+
+        span:nth-of-type(1) {
+            transform: translateY(8px) rotate(-45deg);
+        }
+        span:nth-of-type(2) {
+            opacity: 0;
+        }
+        span:nth-of-type(3) {
+            transform: translateY(-8px) rotate(45deg);
+        }
+    }
     .global-navi {
         display: block;
     }
