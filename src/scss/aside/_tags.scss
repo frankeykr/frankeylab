@@ -19,6 +19,10 @@
             margin: 0 8px 10px 0;
             padding: 1px 5px;
 
+            @include sp-screen {
+                margin: 0 10px 10px 0;
+            }
+
             p {
                 color: $theme__font-color__gray;
                 font-size: 14px;
