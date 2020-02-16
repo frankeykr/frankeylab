@@ -3,8 +3,9 @@
 
     @include sp-screen {
         padding-top: 0;
+        margin-top: 15px;
     }
-    
+
     .tag-list {
         display: flex;
         flex-wrap: wrap;
