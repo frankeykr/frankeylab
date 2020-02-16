@@ -102,6 +102,14 @@ footer {
                     .sbi_header_img {
                         .sbi_header_img_hover {
                             background: rgba(255,255,255,.75);
+
+                            @include sp-screen {
+                                background: transparent;
+
+                                svg {
+                                    display: none;
+                                }
+                            }
                         }
                     }
                 }
