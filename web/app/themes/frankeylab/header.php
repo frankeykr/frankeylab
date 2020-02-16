@@ -14,6 +14,11 @@
                 <p>FRANKEY<br>LAB.</p>
             </a>
         </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <?php
         wp_nav_menu( array(
             'theme_location'  => 'global',
@@ -24,4 +29,13 @@
         ));
         ?>
     </div>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('.hamburger-menu').click(function(){
+                $('.site-header').toggleClass('is-active');
+            });
+        });
+    </script>
 </header>
+
+
