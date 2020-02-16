@@ -12,6 +12,10 @@
         animation-duration:1.4s;
         animation-iteration-count:infinite;
         animation-timing-function:linear;
+
+        @include sp-screen {
+            animation: none;
+        }
     }
 
     .arrow.primera {
@@ -20,5 +24,9 @@
         animation-delay:0.2s;
         animation-iteration-count:infinite;
         animation-timing-function:linear;
+        
+        @include sp-screen {
+            animation: none;
+        }
     }
 }
