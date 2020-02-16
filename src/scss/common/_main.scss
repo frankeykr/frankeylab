@@ -2,6 +2,10 @@
     position: relative;
     padding: 60px 0;
 
+    @include sp-screen {
+        padding: 50px 0;
+    }
+
     .post-list {
         &__item {
             position: relative;
@@ -26,6 +30,11 @@
                     font-size: 34px;
                     font-weight: 700;
                     line-height: 1.5;
+
+                    @include sp-screen {
+                        font-size: 30px;
+                        letter-spacing: 0;
+                    }
                 }
             }
 
@@ -65,6 +74,10 @@
                         width: 100%;
                         height: 350px;
                         object-fit: cover;
+
+                        @include sp-screen {
+                            height: auto;
+                        }
                     }
                 }
 
