@@ -77,7 +77,7 @@
             width: 100%;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            margin-top: 100px;
         }
 
         li {
@@ -139,6 +139,6 @@
 
 .site-header.is-active {
     .global-navi {
-        display: flex;
+        display: block;
     }
 }
