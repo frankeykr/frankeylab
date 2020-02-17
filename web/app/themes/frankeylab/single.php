@@ -35,7 +35,7 @@ if (have_posts()):
                             <?php the_content(); ?>
                         </div>
                     </div>
-                    <?php single_page_pagination();?>
+                    <!-- <?php single_page_pagination();?> -->
 
                 </div>
             </main><!-- .site-main -->

@@ -144,39 +144,87 @@
         }
     }
 
-    .single-page-pagination {
-        display: flex;
-        margin-top: 100px;
-        padding-left: 64px;
-        padding-right: 64px;
+    // .single-page-pagination {
+    //     display: flex;
+    //     margin-top: 100px;
+    //     padding-left: 64px;
+    //     padding-right: 64px;
 
-        p {
-            font-size: 14px;
-            line-height: 1.5;
-        }
+    //     p {
+    //         font-size: 14px;
+    //         line-height: 1.5;
+    //         text-overflow: ellipsis;
+    //         overflow: hidden;
+    //     }
 
-        .previous-page {
-            flex: 1;
+    //     .pagination {
+    //         flex: 1;
 
-            &__link {
-                display: inline-block;
+    //         &__link {
+    //             display: block;
 
-                .pagination-container {
-                    padding-right: 24px;
-                }
-            }
-        }
+    //             .pagination-container {
+    //                 display: flex;
+    //                 align-items: center;
+    //                 position: relative;
+    //                 padding: 0 20px;
+    //                 height: 42px;
 
-        .next-page {
-            flex: 1;
+    //                 .arrow {
+    //                     position: absolute;
+    //                     width: 20px;
+    //                     height: 100%;
 
-            &__link {
-                display: inline-block;
+    //                     &:before {
+    //                         content: '';
+    //                         position: absolute;
+    //                         width: 15px;
+    //                         height: 2px;
+    //                         background: $theme-black;
+    //                     }
 
-                .pagination-container {
-                    padding-left: 24px;
-                }
-            }
-        }
-    }
+    //                     &:after {
+    //                         content: '';
+    //                         position: absolute;
+    //                         width: 15px;
+    //                         height: 2px;
+    //                         background: $theme-black;
+    //                     }
+    //                 }
+
+    //                 .arrow-prev {
+    //                     left: 0;
+
+    //                     &:before {
+    //                         top: 14px;
+    //                         left: 0;
+    //                         transform: rotate(-60deg);
+    //                     }
+
+    //                     &:after {
+    //                         bottom: 14px;
+    //                         left: 0;
+    //                         transform: rotate(60deg);
+    //                     }
+    //                 }
+
+    //                 .arrow-next {
+    //                     right: 0;
+                        
+    //                     &:before {
+    //                         top: 14px;
+    //                         right: 0;
+    //                         transform: rotate(60deg);
+    //                     }
+
+    //                     &:after {
+    //                         bottom: 14px;
+    //                         right: 0;
+    //                         transform: rotate(-60deg);
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 }

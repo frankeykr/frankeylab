@@ -700,26 +700,26 @@ function single_page_pagination() {
         $previous_post = get_previous_post();
         $next_post = get_next_post();
         ?>
-        <div class="previous-page">
+        <div class="pagination previous-page">
             <?php
             if (!empty($next_post)):
                 $next_post_id = $next_post->ID; ?>
-                <a class="previous-page__link" href="<?= get_the_permalink($next_post_id); ?>">
+                <a class="pagination__link previous-page__link" href="<?= get_the_permalink($next_post_id); ?>">
                     <div class="pagination-container pagination-container__left">
+                        <span class="arrow arrow-prev"></span>
                         <p class="pagination-title"><?= get_the_title($next_post_id); ?></p>
-                        <span class="arrow-left"></span>
                     </div>
                 </a>
             <?php endif; ?>
         </div>
-        <div class="next-page">
+        <div class="pagination next-page">
             <?php
             if (!empty($previous_post)):
                 $previous_post_id = $previous_post->ID; ?>
-                <a class="next-page__link" href="<?= get_the_permalink($previous_post_id); ?>">
+                <a class="pagination__link next-page__link" href="<?= get_the_permalink($previous_post_id); ?>">
                     <div class="pagination-container pagination-container__right">
+                        <span class="arrow arrow-next"></span>
                         <p class="pagination-title"><?= get_the_title($previous_post_id); ?></p>
-                        <span class="arrow-right"></span>
                     </div>
                 </a>
             <?php endif; ?>
