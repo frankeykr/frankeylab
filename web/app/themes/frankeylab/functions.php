@@ -343,8 +343,10 @@ function add_blog_list_code_short_code() {
                                 <span class="year"><?php the_time('Y'); ?></span>
                             </div>
                             <div class="post-image-container">
-                                <img class="image" src="<?= $blogImageUrl; ?>"
-                                    alt="<?php the_title(); ?>">
+                                <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                                    <img class="image" src="<?= $blogImageUrl; ?>"
+                                        alt="<?php the_title(); ?>">
+                                </a>
                             </div>
                             <ul class="tags-container">
                             <?php
@@ -427,8 +429,10 @@ function add_code_list_code_short_code() {
                                 <span class="year"><?php the_time('Y'); ?></span>
                             </div>
                             <div class="post-image-container">
-                                <img class="image" src="<?= $codeImageUrl; ?>"
-                                    alt="<?php the_title(); ?>">
+                                <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                                    <img class="image" src="<?= $codeImageUrl; ?>"
+                                        alt="<?php the_title(); ?>">
+                                </a>
                             </div>
                             <ul class="tags-container">
                             <?php
@@ -511,8 +515,10 @@ function add_japan_list_code_short_code() {
                                 <span class="year"><?php the_time('Y'); ?></span>
                             </div>
                             <div class="post-image-container">
-                                <img class="image" src="<?= $japanImageUrl; ?>"
-                                    alt="<?php the_title(); ?>">
+                                <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                                    <img class="image" src="<?= $japanImageUrl; ?>"
+                                        alt="<?php the_title(); ?>">
+                                </a>
                             </div>
                             <ul class="tags-container">
                             <?php
@@ -595,8 +601,10 @@ function add_life_list_code_short_code() {
                                 <span class="year"><?php the_time('Y'); ?></span>
                             </div>
                             <div class="post-image-container">
-                                <img class="image" src="<?= $lifeImageUrl; ?>"
-                                    alt="<?php the_title(); ?>">
+                                <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                                    <img class="image" src="<?= $lifeImageUrl; ?>"
+                                        alt="<?php the_title(); ?>">
+                                </a>
                             </div>
                             <ul class="tags-container">
                             <?php

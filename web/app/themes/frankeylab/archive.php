@@ -51,8 +51,10 @@
                                                 <span class="year"><?php the_time('Y'); ?></span>
                                             </div>
                                             <div class="post-image-container">
-                                                <img class="image" src="<?= $postImageUrl; ?>"
-                                                    alt="<?php the_title(); ?>">
+                                                <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                                                    <img class="image" src="<?= $postImageUrl; ?>"
+                                                        alt="<?php the_title(); ?>">
+                                                </a>
                                             </div>
                                             <ul class="tags-container">
                                                 <?php
