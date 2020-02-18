@@ -1,6 +1,7 @@
 <?php
 get_header();
 
+$postType = get_post_type($post);
 if (have_posts()):
     while (have_posts()):the_post();
         if (has_post_thumbnail()) {
@@ -21,7 +22,6 @@ if (have_posts()):
                         <div class="single-page__image-container">
                             <ul class="single-page__image-container__tags">
                                 <?php
-                                $postType = get_post_type($post);
                                 $postTags = get_the_terms($post->ID, $postType . '-tag');
                                 if ($postTags) {
                                     foreach ($postTags as $tag) {
@@ -34,8 +34,39 @@ if (have_posts()):
                         <div class="single-page__content">
                             <?php the_content(); ?>
                         </div>
+                        <?php
+                        global $post;
+                            $args = array(
+                            'numberposts' => 3,
+                            'post_type' => $postType,
+                            'taxonomy' => $postType . '-tag',
+                            'orderby' => 'rand', //랜덤표시
+                            'post__not_in' => array($post->ID) //현재 표시중인 포스트는 예외
+                            );
+                            ?>
+                            <div class="single-page__related-post">
+                                <ul class="related-post-list">
+                                    <?php $myPosts = get_posts($args); if($myPosts) : ?>
+                                        <?php foreach($myPosts as $post) : setup_postdata($post); ?>
+                                            <li class="related-post-list__item">
+                                                <a href="<?php the_permalink(); ?>">
+                                                    <div class="related-post-img">
+                                                        <?php the_post_thumbnail('medium'); ?>
+                                                    </div>
+                                                    <div class="related-post-title">
+                                                        <p><?php the_title(); ?></p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                    <li>관련 포스트가 없습니다.</li>
+                                </ul>
+                            </div>
+                        <?php endif; 
+                        wp_reset_postdata(); 
+                        ?>
                     </div>
-                    <!-- <?php single_page_pagination();?> -->
 
                 </div>
             </main><!-- .site-main -->

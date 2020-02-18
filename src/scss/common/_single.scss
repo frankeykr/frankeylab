@@ -142,89 +142,35 @@
                 margin: 20px 0;
             }
         }
+
+        &__related-post {
+            .related-post-list {
+                display: flex;
+
+                &__item {
+                    width: 33.3333%;
+                    margin-right: 20px;
+
+                    a {
+                        display: inline-block;
+
+                        .related-post-img {
+                            max-height: 150px;
+                            overflow: hidden;
+                            
+                            img {
+                                object-fit: cover;
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+
+
+            }
+        }
     }
-
-    // .single-page-pagination {
-    //     display: flex;
-    //     margin-top: 100px;
-    //     padding-left: 64px;
-    //     padding-right: 64px;
-
-    //     p {
-    //         font-size: 14px;
-    //         line-height: 1.5;
-    //         text-overflow: ellipsis;
-    //         overflow: hidden;
-    //     }
-
-    //     .pagination {
-    //         flex: 1;
-
-    //         &__link {
-    //             display: block;
-
-    //             .pagination-container {
-    //                 display: flex;
-    //                 align-items: center;
-    //                 position: relative;
-    //                 padding: 0 20px;
-    //                 height: 42px;
-
-    //                 .arrow {
-    //                     position: absolute;
-    //                     width: 20px;
-    //                     height: 100%;
-
-    //                     &:before {
-    //                         content: '';
-    //                         position: absolute;
-    //                         width: 15px;
-    //                         height: 2px;
-    //                         background: $theme-black;
-    //                     }
-
-    //                     &:after {
-    //                         content: '';
-    //                         position: absolute;
-    //                         width: 15px;
-    //                         height: 2px;
-    //                         background: $theme-black;
-    //                     }
-    //                 }
-
-    //                 .arrow-prev {
-    //                     left: 0;
-
-    //                     &:before {
-    //                         top: 14px;
-    //                         left: 0;
-    //                         transform: rotate(-60deg);
-    //                     }
-
-    //                     &:after {
-    //                         bottom: 14px;
-    //                         left: 0;
-    //                         transform: rotate(60deg);
-    //                     }
-    //                 }
-
-    //                 .arrow-next {
-    //                     right: 0;
-                        
-    //                     &:before {
-    //                         top: 14px;
-    //                         right: 0;
-    //                         transform: rotate(60deg);
-    //                     }
-
-    //                     &:after {
-    //                         bottom: 14px;
-    //                         right: 0;
-    //                         transform: rotate(-60deg);
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
 }
