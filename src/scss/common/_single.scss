@@ -144,22 +144,91 @@
         }
 
         &__related-post {
+            margin-top: 50px;
+
+            @include sp-screen {
+                margin-top: 25px;
+            }
+
+            .title {
+                border-top: 1px solid #d8d8d8;
+                padding-top: 50px;
+                padding-bottom: 16px;
+
+                @include sp-screen {
+                    padding-top: 25px;
+                    padding-bottom: 25px;
+                }
+
+                span {
+                    color: $theme__font-color__gray3;
+                    font-size: 18px;
+                    font-weight: 400;
+                    letter-spacing: 1px;
+
+                    @include sp-screen {
+                        font-size: 16px;
+                    }
+                }
+            }
             .related-post-list {
                 display: flex;
+
+                @include sp-screen {
+                    flex-direction: column;
+                }
 
                 &__item {
                     width: 33.3333%;
                     margin-right: 20px;
 
+                    @include sp-screen {
+                        width: 100%;
+                        margin-right: 0;
+                        margin-bottom: 16px;
+                    }
+
                     a {
-                        display: inline-block;
+                        width: 100%;
+                        display: inline-flex;
+                        flex-direction: column;
+
+                        @include sp-screen {
+                            flex-direction: row;
+                        }
 
                         .related-post-img {
                             max-height: 150px;
                             overflow: hidden;
+
+                            @include sp-screen {
+                                flex: 1;
+                                max-height: 27vw;
+                            }
                             
                             img {
                                 object-fit: cover;
+                                max-height: 150px;
+
+                                @include sp-screen {
+                                    max-height: 27vw;
+                                }
+                            }
+                        }
+
+                        .related-post-title {
+                            margin-top: 8px;
+
+                            @include sp-screen {
+                                flex: 1;
+                                margin-top: 0;
+                                margin-left: 8px;
+                            }
+
+                            p {
+                                color: $theme__font-color__gray2;
+                                font-size: 14px;
+                                font-weight: 400;
                             }
                         }
                     }

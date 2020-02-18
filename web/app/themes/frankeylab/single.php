@@ -45,6 +45,9 @@ if (have_posts()):
                             );
                             ?>
                             <div class="single-page__related-post">
+                                <div class="title">
+                                    <span>RELATED POST</span>
+                                </div>
                                 <ul class="related-post-list">
                                     <?php $myPosts = get_posts($args); if($myPosts) : ?>
                                         <?php foreach($myPosts as $post) : setup_postdata($post); ?>
