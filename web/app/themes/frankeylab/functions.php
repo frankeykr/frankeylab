@@ -16,6 +16,9 @@ function enqueue_styles_and_scripts() {
     if (is_post_type_archive('code')) {
         wp_enqueue_script('infinite-scroll', get_stylesheet_directory_uri() . '/dist/js/infinite_scroll.js', array(), false, true);
     }
+    if (is_post_type_archive('japan')) {
+        wp_enqueue_script('infinite-scroll', get_stylesheet_directory_uri() . '/dist/js/infinite_scroll.js', array(), false, true);
+    }
     if (is_post_type_archive('life')) {
         wp_enqueue_script('infinite-scroll', get_stylesheet_directory_uri() . '/dist/js/infinite_scroll.js', array(), false, true);
     }
@@ -242,6 +245,31 @@ register_taxonomy(
     )
 );
 
+/**
+ * 커스텀포스트에 카테고리 추가
+ */
+register_taxonomy(
+    'life-category',
+    'life',
+    array(
+        'hierarchical' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'label' => '라이프 카테고리',
+        'singular_label' => '라이프 카테고리',
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => false, // 관리화면에서 표시 안함
+        'show_in_rest' => true,
+    )
+);
+
+add_common_category();
+function add_common_category()
+{
+    wp_insert_term( '디자인', 'life-category', array('slug' => 'design'));
+    wp_insert_term( '이슈', 'life-category', array('slug' => 'issue'));
+    wp_insert_term( '특이점', 'life-category', array('slug' => 'singularity'));
+}
 
 /**
  * 관리화면 헤더 메뉴에 체크박스 추가

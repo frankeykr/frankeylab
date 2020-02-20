@@ -35,45 +35,58 @@ if (have_posts()):
                             <?php the_content(); ?>
                         </div>
                         <?php
-                        global $post;
-                            $args = array(
-                            'numberposts' => 3,
-                            'post_type' => $postType,
-                            'taxonomy' => $postType . '-tag',
-                            'orderby' => 'rand', //랜덤표시
-                            'post__not_in' => array($post->ID) //현재 표시중인 포스트는 예외
-                            );
-                            ?>
-                            <div class="single-page__related-post">
-                                <div class="title">
-                                    <span>RELATED POST</span>
-                                </div>
-                                <ul class="related-post-list">
-                                    <?php 
-                                    $myPosts = get_posts($args); 
-                                    if($myPosts) {
-                                        foreach($myPosts as $post) : setup_postdata($post); 
-                                        ?>
-                                            <li class="related-post-list__item">
-                                                <a href="<?php the_permalink(); ?>">
-                                                    <div class="related-post-img">
-                                                        <?php the_post_thumbnail('medium'); ?>
-                                                    </div>
-                                                    <div class="related-post-title">
-                                                        <p><?php the_title(); ?></p>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        <?php 
-                                        endforeach;
-                                    } else {
-                                        echo '<li><p>관련 게시물이 없습니다.</p></li>';
-                                    } ?>
-                                </ul>
-                            </div>
-                        <?php 
-                        wp_reset_postdata(); 
+                        $postCategory = $postType . '-category';
+                        $term = wp_get_object_terms($post->ID, $postCategory); //지정되어 있는 택소노미의 텀을 취득
+                        $termName = $term[0]->name; //텀 이름
+                        $termSlug = $term[0]->slug; //텀 슬러그
                         ?>
+                        <div class="single-page__related-post">
+                            <div class="title">
+                                <span class="slug" style="text-transform: uppercase;"><?= $termSlug?></span>
+                                <span>RELATED POSTS</span>
+                            </div>
+                            <ul class="related-post-list">
+                                <?php 
+                                global $post;
+                                $args = array(
+                                    'numberposts' => 3,
+                                    'post_type' => $postType,
+                                    'orderby' => 'rand', //랜덤표시
+                                    'post__not_in' => array($post->ID), //현재 표시중인 포스트는 예외
+                                    'tax_query' => array(
+                                        array(
+                                            'taxonomy' => $postCategory,
+                                            'field' => 'slug',
+                                            'terms' => $termSlug
+                                        )
+                                    )
+                                );
+                                
+                                $myPosts = get_posts($args); 
+                                if($myPosts) {
+                                    foreach($myPosts as $post) : setup_postdata($post); 
+                                    ?>
+                                        <li class="related-post-list__item">
+                                            <a href="<?php the_permalink(); ?>">
+                                                <div class="related-post-img">
+                                                    <?php the_post_thumbnail('medium'); ?>
+                                                </div>
+                                                <div class="related-post-title">
+                                                    <p><?php the_title(); ?></p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    <?php 
+                                    endforeach;
+                                } else {
+                                    echo '<li><p>관련 게시물이 없습니다.</p></li>';
+                                } ?>
+
+                                <?php 
+                                wp_reset_postdata(); 
+                                ?>
+                            </ul>
+                        </div>
                     </div>
 
                 </div>
