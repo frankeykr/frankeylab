@@ -69,7 +69,14 @@ if (have_posts()):
                                         <li class="related-post-list__item">
                                             <a href="<?php the_permalink(); ?>">
                                                 <div class="related-post-img">
-                                                    <?php the_post_thumbnail('medium'); ?>
+                                                    <?php  
+                                                    if (has_post_thumbnail()) {
+                                                        the_post_thumbnail('medium');
+                                                    } else {
+                                                        
+                                                        echo '<img src="' . get_stylesheet_directory_uri() . '/image/no-image.svg">';
+                                                    }
+                                                    ?>
                                                 </div>
                                                 <div class="related-post-title">
                                                     <p><?php the_title(); ?></p>
