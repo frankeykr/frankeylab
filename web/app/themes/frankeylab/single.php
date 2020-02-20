@@ -73,7 +73,6 @@ if (have_posts()):
                                                     if (has_post_thumbnail()) {
                                                         the_post_thumbnail('medium');
                                                     } else {
-                                                        
                                                         echo '<img src="' . get_stylesheet_directory_uri() . '/image/no-image.svg">';
                                                     }
                                                     ?>
