@@ -49,8 +49,11 @@ if (have_posts()):
                                     <span>RELATED POST</span>
                                 </div>
                                 <ul class="related-post-list">
-                                    <?php $myPosts = get_posts($args); if($myPosts) : ?>
-                                        <?php foreach($myPosts as $post) : setup_postdata($post); ?>
+                                    <?php 
+                                    $myPosts = get_posts($args); 
+                                    if($myPosts) {
+                                        foreach($myPosts as $post) : setup_postdata($post); 
+                                        ?>
                                             <li class="related-post-list__item">
                                                 <a href="<?php the_permalink(); ?>">
                                                     <div class="related-post-img">
@@ -61,12 +64,14 @@ if (have_posts()):
                                                     </div>
                                                 </a>
                                             </li>
-                                        <?php endforeach; ?>
-                                    <?php else : ?>
-                                    <li>관련 포스트가 없습니다.</li>
+                                        <?php 
+                                        endforeach;
+                                    } else {
+                                        echo '<li><p>관련 게시물이 없습니다.</p></li>';
+                                    } ?>
                                 </ul>
                             </div>
-                        <?php endif; 
+                        <?php 
                         wp_reset_postdata(); 
                         ?>
                     </div>
