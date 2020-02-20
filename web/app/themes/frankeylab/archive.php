@@ -25,7 +25,7 @@
                                 if (has_post_thumbnail()) {
                                     $postImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large')[0];
                                 } else {
-                                    $postImageUrl = get_stylesheet_directory_uri() . "/image/dummy.jpg";
+                                    $postImageUrl = get_stylesheet_directory_uri() . "/image/no-image.svg";
                                 }
                                 ?>
                                     <li class="post-list__item">

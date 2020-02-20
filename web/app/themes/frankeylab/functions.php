@@ -317,7 +317,7 @@ function add_blog_list_code_short_code() {
                     if (has_post_thumbnail()) {
                         $blogImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($blogObject->ID), 'large')[0];
                     } else {
-                        $blogImageUrl = get_stylesheet_directory_uri() . "/image/dummy.jpg";
+                        $blogImageUrl = get_stylesheet_directory_uri() . "/image/no-image.svg";
                     }
                     ?>
                     <li class="post-list__item">
@@ -403,7 +403,7 @@ function add_code_list_code_short_code() {
                     if (has_post_thumbnail()) {
                         $codeImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($codeObject->ID), 'large')[0];
                     } else {
-                        $codeImageUrl = get_stylesheet_directory_uri() . "/image/dummy.jpg";
+                        $codeImageUrl = get_stylesheet_directory_uri() . "/image/no-image.svg";
                     }
                     ?>
                     <li class="post-list__item">
@@ -489,7 +489,7 @@ function add_japan_list_code_short_code() {
                     if (has_post_thumbnail()) {
                         $japanImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($japanObject->ID), 'large')[0];
                     } else {
-                        $japanImageUrl = get_stylesheet_directory_uri() . "/image/dummy.jpg";
+                        $japanImageUrl = get_stylesheet_directory_uri() . "/image/no-image.svg";
                     }
                     ?>
                     <li class="post-list__item">
@@ -575,7 +575,7 @@ function add_life_list_code_short_code() {
                     if (has_post_thumbnail()) {
                         $lifeImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($lifeObject->ID), 'large')[0];
                     } else {
-                        $lifeImageUrl = get_stylesheet_directory_uri() . "/image/dummy.jpg";
+                        $lifeImageUrl = get_stylesheet_directory_uri() . "/image/no-image.svg";
                     }
                     ?>
                     <li class="post-list__item">

@@ -7,7 +7,7 @@ if (have_posts()):
         if (has_post_thumbnail()) {
             $singlePageImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large')[0];
         } else {
-            $singlePageImageUrl = get_stylesheet_directory_uri() . "/image/dummy.jpg";
+            $singlePageImageUrl = get_stylesheet_directory_uri() . "/image/no-image.svg";
         }
         ?>
 
