@@ -640,6 +640,29 @@ function add_life_list_code_short_code() {
     return ob_get_clean();
 }
 
+/**
+ * PROFILE 숏 코드
+ */
+add_shortcode('profile', 'add_profile_code_short_code');
+function add_profile_code_short_code() {
+    ob_start();
+    ?>
+    <div class="sidebar-profile">
+        <div class="sidebar-profile__image-container">
+            <img class="sidebar-profile__image-container__image" 
+            src="<?= get_stylesheet_directory_uri()?>/image/profile.jpeg" alt="profile-img">
+        </div>
+        <div class="sidebar-profile__name-container">
+            <span class="sidebar-profile__name-container__name">FRANKEY</span>
+        </div>
+        <div class="sidebar-profile__content-container">
+            <?php echo do_shortcode('[about]'); ?>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
  /**
  * ABOUT 숏 코드
  */

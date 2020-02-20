@@ -91,6 +91,7 @@
                 </div>
 
                 <aside class="sidebar">
+                    <?php echo do_shortcode('[profile]'); ?>
                     <div class="sidebar-tags">
                         <ul class="tag-list">
                             <?php
