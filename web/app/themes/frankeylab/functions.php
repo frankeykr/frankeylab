@@ -249,6 +249,51 @@ register_taxonomy(
  * 커스텀포스트에 카테고리 추가
  */
 register_taxonomy(
+    'code-category',
+    'code',
+    array(
+        'hierarchical' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'label' => '코드 카테고리',
+        'singular_label' => '코드 카테고리',
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => false, // 관리화면에서 표시 안함
+        'show_in_rest' => true,
+    )
+);
+
+register_taxonomy(
+    ' blog-category',
+    ' blog',
+    array(
+        'hierarchical' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'label' => '블로그 카테고리',
+        'singular_label' => '블로그 카테고리',
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => false, // 관리화면에서 표시 안함
+        'show_in_rest' => true,
+    )
+);
+
+register_taxonomy(
+    'japan-category',
+    'japan',
+    array(
+        'hierarchical' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'label' => '일본 카테고리',
+        'singular_label' => '일본 카테고리',
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => false, // 관리화면에서 표시 안함
+        'show_in_rest' => true,
+    )
+);
+
+register_taxonomy(
     'life-category',
     'life',
     array(
@@ -263,9 +308,25 @@ register_taxonomy(
     )
 );
 
+/**
+ * 카테고리 항목 추가
+ */
 add_common_category();
 function add_common_category()
 {
+    // post type CODE
+    wp_insert_term( '워드프레스', 'code-category', array('slug' => 'wordpress'));
+
+    // post type BLOG
+    wp_insert_term( 'SEO', 'blog-category', array('slug' => 'seo'));
+    wp_insert_term( '어필리에이트', 'blog-category', array('slug' => 'affiliate'));
+    
+    // post type JAPAN
+    wp_insert_term( '문화', 'japan-category', array('slug' => 'culture'));
+    wp_insert_term( '일상', 'japan-category', array('slug' => 'daily'));
+    wp_insert_term( '여행', 'japan-category', array('slug' => 'travel'));
+
+    // post type LIFE
     wp_insert_term( '디자인', 'life-category', array('slug' => 'design'));
     wp_insert_term( '이슈', 'life-category', array('slug' => 'issue'));
     wp_insert_term( '특이점', 'life-category', array('slug' => 'singularity'));
