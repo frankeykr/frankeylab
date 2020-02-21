@@ -84,6 +84,7 @@
     "wpackagist-plugin/redirection":"^4",
     "wpackagist-plugin/instagram-feed":"^2",
     "wpackagist-plugin/enlighter":"^3",
+    "wpackagist-plugin/radio-buttons-for-taxonomies":"^2",
     "koodimonni-language/core-ko_kr": "^5",
     "koodimonni/composer-dropin-installer": "^1"
   },
