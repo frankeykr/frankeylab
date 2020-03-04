@@ -45,6 +45,10 @@
                 .date {
                     font-size: 14px;
                     letter-spacing: 1px;
+
+                    @include sp-screen {
+                        font-size: 12px;
+                    }
                 }
             }
 
@@ -60,7 +64,7 @@
                         object-fit: cover;
 
                         @include sp-screen {
-                            height: 200px;
+                            height: 54vw;
                         }
                     }
                 }
@@ -74,6 +78,11 @@
                     left: 0;
                     bottom: 0;
                     z-index: 1;
+
+                    @include sp-screen {
+                        padding-left: 8px;
+                        padding-bottom: 8px;
+                    }
     
                     .tag {
                         display: inline-flex;
@@ -82,6 +91,10 @@
                         span {
                             font-size: 14px;
                             color: $theme__font-color__white;
+
+                            @include sp-screen {
+                                font-size: 12px;
+                            }
                         }
                     }
     

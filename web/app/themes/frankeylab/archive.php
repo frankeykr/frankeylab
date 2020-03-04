@@ -90,13 +90,16 @@
                 <aside class="sidebar">
                     <?php echo do_shortcode('[profile]'); ?>
                     <div class="sidebar-tags">
+                        <div class="tag-title">
+                            <span><?= $postType ?> TAGS</span>
+                        </div>
                         <ul class="tag-list">
                             <?php
                             $isTheTagSelected = '';
                             if (empty($currentSelectedTagSlug)) {
                                 $isTheTagSelected = 'current-selected-tag';
                             } ?>
-                            <li class="tag-list__item <?= $isTheTagSelected; ?>">
+                            <li class="all-tag tag-list__item <?= $isTheTagSelected; ?>">
                                 <a href="<?= get_post_type_archive_link($postType); ?>" class="tag-link">
                                     <p>전체</p>
                                 </a>

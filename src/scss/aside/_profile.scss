@@ -1,6 +1,10 @@
 .sidebar-profile {
     padding-top: 60px;
 
+    @include sp-screen {
+        display: none;
+    }
+
     &__image-container {
         margin: 0 auto;
         margin-bottom: 16px;
