@@ -36,3 +36,35 @@
         }
     }
 }
+
+.front-page {
+    .sidebar-profile {
+        @include sp-screen {
+            display: block;
+            border-bottom: 1px solid #d8d8d8;
+            padding-bottom: 60px;
+        }
+
+        &__image-container {
+            @include sp-screen {
+                max-width: 100px;
+            }
+        }
+
+        &__name-container {
+            @include sp-screen {
+                margin-bottom: 16px;
+            }
+        }
+
+        &__content-container {
+            .about {
+                &__link {
+                    @include sp-screen {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

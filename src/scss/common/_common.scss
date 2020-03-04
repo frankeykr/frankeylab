@@ -70,14 +70,6 @@ img {
     }
 }
 
-.front-page {
-    .sidebar {
-        @include sp-screen {
-            display: none;
-        }
-    }
-}
-
 .post-image-container {
     &__image {
         width: 100%;
