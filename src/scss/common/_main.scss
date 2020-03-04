@@ -43,32 +43,16 @@
                 padding-bottom: 16px;
 
                 .date {
-                    font-size: 12px;
+                    font-size: 14px;
+                    letter-spacing: 1px;
                 }
             }
 
             &__image {
                 position: relative;
 
-                .year-container {
-                    padding-top: 16px;
-                    display: inline-flex;
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    z-index: 1;
-
-                    .year {
-                        font-size: 12px;
-                        letter-spacing: 1.5px;
-                        color: $theme__font-color__white;
-                    }
-                }
-
                 .post-image-container {
                     filter: brightness(0.85);
-                    margin-left: -16px;
-                    margin-right: -16px;
 
                     .image {
                         width: 100%;
@@ -76,12 +60,13 @@
                         object-fit: cover;
 
                         @include sp-screen {
-                            height: auto;
+                            height: 200px;
                         }
                     }
                 }
 
                 .tags-container {
+                    padding-left: 16px;
                     padding-bottom: 16px;
                     display: flex;
                     align-content: center;
@@ -95,7 +80,7 @@
                         margin-right: 10px;
     
                         span {
-                            font-size: 10px;
+                            font-size: 14px;
                             color: $theme__font-color__white;
                         }
                     }
@@ -115,6 +100,7 @@
                     padding: 0;
                     font-size: 14px;
                     line-height: 2;
+                    letter-spacing: 1px;
                     color: $theme__font-color__gray2;
                 }
 

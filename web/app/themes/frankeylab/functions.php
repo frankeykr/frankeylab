@@ -425,12 +425,9 @@ function add_blog_list_code_short_code() {
                             </a>
                         </div>
                         <div class="post-list__item__date">
-                            <span class="date"><?php the_date('n/j'); ?></span>
+                            <span class="date"><?php the_date('Y/n/j'); ?></span>
                         </div>
                         <div class="post-list__item__image">
-                            <div class="year-container">
-                                <span class="year"><?php the_time('Y'); ?></span>
-                            </div>
                             <div class="post-image-container">
                                 <a href="<?php the_permalink(); ?>" class="link-to-single-page">
                                     <img class="image" src="<?= $blogImageUrl; ?>"
@@ -511,12 +508,9 @@ function add_code_list_code_short_code() {
                             </a>
                         </div>
                         <div class="post-list__item__date">
-                            <span class="date"><?php the_date('n/j'); ?></span>
+                            <span class="date"><?php the_date('Y/n/j'); ?></span>
                         </div>
                         <div class="post-list__item__image">
-                            <div class="year-container">
-                                <span class="year"><?php the_time('Y'); ?></span>
-                            </div>
                             <div class="post-image-container">
                                 <a href="<?php the_permalink(); ?>" class="link-to-single-page">
                                     <img class="image" src="<?= $codeImageUrl; ?>"
@@ -597,12 +591,9 @@ function add_japan_list_code_short_code() {
                             </a>
                         </div>
                         <div class="post-list__item__date">
-                            <span class="date"><?php the_date('n/j'); ?></span>
+                            <span class="date"><?php the_date('Y/n/j'); ?></span>
                         </div>
                         <div class="post-list__item__image">
-                            <div class="year-container">
-                                <span class="year"><?php the_time('Y'); ?></span>
-                            </div>
                             <div class="post-image-container">
                                 <a href="<?php the_permalink(); ?>" class="link-to-single-page">
                                     <img class="image" src="<?= $japanImageUrl; ?>"
@@ -683,12 +674,9 @@ function add_life_list_code_short_code() {
                             </a>
                         </div>
                         <div class="post-list__item__date">
-                            <span class="date"><?php the_date('n/j'); ?></span>
+                            <span class="date"><?php the_date('Y/n/j'); ?></span>
                         </div>
                         <div class="post-list__item__image">
-                            <div class="year-container">
-                                <span class="year"><?php the_time('Y'); ?></span>
-                            </div>
                             <div class="post-image-container">
                                 <a href="<?php the_permalink(); ?>" class="link-to-single-page">
                                     <img class="image" src="<?= $lifeImageUrl; ?>"
@@ -762,11 +750,10 @@ function add_about_code_short_code() {
     <div class="about">
         <div class="about__content">
             <p>
-                한국에서 인테리어 디자이너를 꿈꿨지만, 현재는 일본에서 웹 엔지니어로 생계를 유지하고 있습니다. 
-                블로그를 운영하면서 SEO ・ 어필리에이트 ・ 자동화 수익에 대해 공부하며 수익을 내는게 목표입니다. <br>
+                일본에서 웹 엔지니어로 생계를 유지하고 있습니다. SEO ・ 어필리에이트 ・ 자동화 수익을 연구하여 수익을 내는게 목표입니다. <br>
                 <br>
                 대한민국 공군 전역 → 디자인 전문대학 졸업 → 디자인 회사 1년 → 부산에서 음식점 창업 → 
-                10개월만에 창업실패 → 프로그래밍 학원 4개월 → 일본어 공부 병행 → 신규졸업자로 도쿄IT기업에 취직   
+                10개월만에 창업실패 → 프로그래밍 학원 4개월 → 일본어 공부 병행 → 신규졸업자로 도쿄 IT기업에 취직   
             </p>
         </div>
         <div class="about__link">
