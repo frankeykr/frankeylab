@@ -44,12 +44,9 @@
                                             </a>
                                         </div>
                                         <div class="post-list__item__date">
-                                            <span class="date"><?php the_date('n/j'); ?></span>
+                                            <span class="date"><?php the_date('Y/n/j'); ?></span>
                                         </div>
                                         <div class="post-list__item__image">
-                                            <div class="year-container">
-                                                <span class="year"><?php the_time('Y'); ?></span>
-                                            </div>
                                             <div class="post-image-container">
                                                 <a href="<?php the_permalink(); ?>" class="link-to-single-page">
                                                     <img class="image" src="<?= $postImageUrl; ?>"
