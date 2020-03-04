@@ -17,7 +17,7 @@ if (have_posts()):
                     <div class="single-page">
                         <div class="single-page__title-and-date">
                             <h1 class="title"><?php the_title(); ?></h1>
-                            <span class="date"><?php the_date('Y.n.j'); ?></span>
+                            <span class="date"><?php the_date('Y/n/j'); ?></span>
                         </div>
                         <div class="single-page__image-container">
                             <ul class="single-page__image-container__tags">
