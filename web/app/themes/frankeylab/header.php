@@ -1,6 +1,5 @@
 <html>
 <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta charset="<?php bloginfo('charset'); ?>">
@@ -36,18 +35,18 @@
                 $('.site-header').toggleClass('is-active');
             });
 
-            var visualOffset;
-            $(window).on('load',function(){
-                visualOffset = $('#main-image').offset().top + $('#main-image').outerHeight();
-            });
+            // var visualOffset;
+            // $(window).on('load',function(){
+            //     visualOffset = $('#main-image').offset().top + $('#main-image').outerHeight();
+            // });
 
-            $(window).scroll(function() {
-                if ( $(window).scrollTop() > visualOffset){
-                    $('.hamburger-menu').addClass("active");
-                } else {
-                    $('.hamburger-menu').removeClass("active");
-                }
-            });
+            // $(window).scroll(function() {
+            //     if ( $(window).scrollTop() > visualOffset){
+            //         $('.hamburger-menu').addClass("active");
+            //     } else {
+            //         $('.hamburger-menu').removeClass("active");
+            //     }
+            // });
         });
     </script>
 </header>
