@@ -1,89 +1,119 @@
-.single-page-wrap {
-    flex-direction: column;
-    padding-top: 100px;
-    padding-bottom: 200px;
+.single-page-content-area {
+    position: relative;
+    top: -160px;
 
     @include sp-screen {
-        padding-top: 50px;
-        padding-bottom: 100px;
+        top: -80px;
     }
+}
 
-    .single-page {
-        &__title-and-date {
-            margin-bottom: 40px;
+.single-page-main {
+    width: 100%;
+    max-width: none;
+    position: relative;
+    z-index: -1;
+
+    &__image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin: 0 -16px;
+
+        img {
+            filter: brightness(.65);
+            object-fit: cover;
+            height: 600px;
 
             @include sp-screen {
-                margin-bottom: 20px;
-            }
-
-            .title {
-                margin-bottom: 30px;
-                font-size: 45px;
-                line-height: 1.5;
-                letter-spacing: -1px;
-
-                @include sp-screen {
-                    margin-bottom: 20px;
-                    font-size: 30px;
-                    letter-spacing: 0;
-                }
-            }
-
-            .date {
-                color: $theme__font-color__gray2;
-                font-size: 16px;
-                letter-spacing: 1px;
-
-                @include sp-screen {
-                    font-size: 14px;
-                }
+                height: 400px;
             }
         }
 
-        &__image-container {
-            position: relative;
+        .content-container {
+            padding: 0 16px;
+            position: absolute;
+            width: calc(100% - 200px);
+            max-width: 712px;
 
-            &__tags {
+            @include sp-screen {
+                width: 100%;
+                margin-top: 35px;
+            }
+
+            .tags {
                 display: flex;
-                position: absolute;
-                bottom: 0;
-                left: -24px;
-                transform: rotate(-90deg) translateY(100%);
-                transform-origin: 0 100%;
-
-                @include sp-screen {
-                    display: none;
-                }
-
+    
                 .tag {
-                    margin-right: 8px;
+                    margin-right: 10px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
 
                     p {
-                        color: $theme__font-color__gray;
-                        font-size: 14px;
+                        color: $theme__font-color__white;
+                        font-size: 12px;
+                        letter-spacing: 1px;
                     }
                 }
             }
 
-            &__image {
-                width: 100%;
-                height: 50vw;
-                object-fit: cover;
-                max-height: 600px;
-
-                @include sp-screen {
-                    height: 54vw;
+            .title-and-date {
+                .title {
+                    margin-top: 20px;
+                    margin-bottom: 30px;
+                    color: $theme__font-color__white;
+                    font-size: 55px;
+                    line-height: 1.2;
+                    letter-spacing: -1px;
+    
+                    @include sp-screen {
+                        font-size: 30px;
+                        letter-spacing: 0;
+                    }
+                }
+    
+                .date {
+                    color: $theme__font-color__white;
+                    font-size: 16px;
+                    letter-spacing: 1px;
+    
+                    @include sp-screen {
+                        font-size: 14px;
+                    }
                 }
             }
+    
+            
+        }
+    }
+}
+
+.single-page-wrap {
+    flex-direction: column;
+    padding-top: 0;
+    padding-bottom: 200px;
+
+    @include sp-screen {
+        padding-bottom: 100px;
+    }
+
+    .single-page {
+        margin: 0 auto;
+        width: calc(100% - 200px);
+        max-width: 680px;
+
+        @include sp-screen {
+            width: 100%;
         }
 
         &__content {
-            margin: 40px auto;
-            max-width: 680px;
+            margin-top: 40px;
             color: $theme__font-color__gray2;
 
             @include sp-screen {
-                margin: 20px auto;
+                margin-top: 20px;
             }
 
             a {

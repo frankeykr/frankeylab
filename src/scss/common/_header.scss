@@ -1,12 +1,11 @@
 .site-header {
     display: flex;
     align-items: center;
-    padding-top: 60px;
+    padding-top: 30px;
     padding-bottom: 50px;
     position: relative;
     
     @include sp-screen {
-        padding-top: 30px;
         padding-bottom: 0;
     }
 }
@@ -33,7 +32,6 @@
 .hamburger-menu {
     width: 30px;
     height: 20px;
-    // background-color: black;
     position: fixed;
     top: 0;
     right: 0;
@@ -161,8 +159,8 @@
         span {
             width: 80%;
             left: 3px;
-
             transition: 600ms cubic-bezier(0.11, 0.45, 0.54, 0.91);
+            background-color: $theme-black;
         }
 
         span:nth-of-type(1) {
@@ -177,5 +175,49 @@
     }
     .global-navi {
         display: block;
+    }
+}
+
+.header-single-page {
+    position: relative;
+    z-index: 1;
+
+    .logo-text {
+        &:before {
+            background: $theme-white;
+        }
+        
+        p {
+            color: $theme__font-color__white;
+        }
+    }
+
+    .global-navi {
+        ul {
+            li {
+                a {
+                    color: $theme__font-color__white;
+
+                    @include sp-screen {
+                        color: $theme__font-color__black;
+                    }
+
+                    &:before {
+                        background: $theme__font-color__white;
+                    }
+                }
+            }
+        }
+    }
+
+    .hamburger-menu {
+        span {
+            background-color: $theme-white;
+        }
+    }
+    .hamburger-menu.active {
+        span {
+            background-color: $theme-black;
+        }
     }
 }

@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<header>
+<header class="<?php if (is_single()) {echo 'header-single-page';}?>">
     <div class="site-header">
         <div class="logo-text">
             <a href="<?= home_url()?>">
@@ -33,6 +33,19 @@
         jQuery(document).ready(function($) {
             $('.hamburger-menu').click(function(){
                 $('.site-header').toggleClass('is-active');
+            });
+            
+            var visualOffset;
+            $(window).on('load',function(){
+                visualOffset = $('#main-image').offset().top + $('#main-image').outerHeight();
+            });
+
+            $(window).scroll(function() {
+                if ( $(window).scrollTop() > visualOffset){
+                    $('.hamburger-menu').addClass("active");
+                } else {
+                    $('.hamburger-menu').removeClass("active");
+                }
             });
         });
     </script>

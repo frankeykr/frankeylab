@@ -11,26 +11,28 @@ if (have_posts()):
         }
         ?>
 
-        <div id="primary" class="content-area">
-            <main id="main" class="site-main" role="main">
-                <div class="content-wrap single-page-wrap">
-                    <div class="single-page">
-                        <div class="single-page__title-and-date">
+        <div id="primary" class="content-area single-page-content-area">
+            <main id="main" class="site-main single-page-main" role="main">
+                <div id="main-image" class="single-page-main__image-container">
+                    <img src="<?= $singlePageImageUrl; ?>" alt="<?php the_title(); ?>">
+                    <div class="content-container">
+                        <ul class="tags">
+                            <?php
+                            $postTags = get_the_terms($post->ID, $postType . '-tag');
+                            if ($postTags) {
+                                foreach ($postTags as $tag) {
+                                    echo '<li class="tag"><p>#' . esc_html($tag->name) . '</p></li>';
+                                }
+                            } ?>
+                        </ul>
+                        <div class="title-and-date">
                             <h1 class="title"><?php the_title(); ?></h1>
                             <span class="date"><?php the_date('Y/n/j'); ?></span>
                         </div>
-                        <div class="single-page__image-container">
-                            <ul class="single-page__image-container__tags">
-                                <?php
-                                $postTags = get_the_terms($post->ID, $postType . '-tag');
-                                if ($postTags) {
-                                    foreach ($postTags as $tag) {
-                                        echo '<li class="tag"><p>#' . esc_html($tag->name) . '</p></li>';
-                                    }
-                                } ?>
-                            </ul>
-                            <img class="single-page__image-container__image" src="<?= $singlePageImageUrl; ?>" alt="<?php the_title(); ?>">
-                        </div>
+                    </div>
+                </div>
+                <div class="content-wrap single-page-wrap">
+                    <div class="single-page">
                         <div class="single-page__content">
                             <?php the_content(); ?>
                             <div class="share-btn">
