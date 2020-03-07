@@ -38,10 +38,14 @@ if (have_posts()):
                             <div class="share-btn">
                                 <ul class="share-btn__list">
                                     <li class="share-btn__list__item">
-                                        <a class="twitter icon-twitter" href="//twitter.com/intent/tweet?text=<?php echo urlencode(the_title("","",0)); ?>&<?php echo urlencode(get_permalink()); ?>&url=<?php echo urlencode(get_permalink()); ?>" target="_blank" title="share on twitter">Twitter</a>
+                                        <a class="twitter icon-twitter" href="//twitter.com/intent/tweet?text=<?php echo urlencode(the_title("","",0)); ?>&<?php echo urlencode(get_permalink()); ?>&url=<?php echo urlencode(get_permalink()); ?>" target="_blank" title="share on twitter">
+                                            <img src="<?= get_stylesheet_directory_uri()?>/image/logo-twitter.png" alt="">
+                                        </a>
                                     </li>
                                     <li class="share-btn__list__item">
-                                        <a class="facebook icon-facebook" href="//www.facebook.com/sharer.php?u=<?php echo urlencode(get_permalink()); ?>&t=<?php echo urlencode(the_title("","",0)); ?>" target="_blank" title="share on facebook">Facebook</a>
+                                        <a class="facebook icon-facebook" href="//www.facebook.com/sharer.php?u=<?php echo urlencode(get_permalink()); ?>&t=<?php echo urlencode(the_title("","",0)); ?>" target="_blank" title="share on facebook">
+                                            <img src="<?= get_stylesheet_directory_uri()?>/image/logo-facebook.png" alt="">
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
