@@ -1,5 +1,6 @@
 <html>
 <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta charset="<?php bloginfo('charset'); ?>">
@@ -34,7 +35,7 @@
             $('.hamburger-menu').click(function(){
                 $('.site-header').toggleClass('is-active');
             });
-            
+
             var visualOffset;
             $(window).on('load',function(){
                 visualOffset = $('#main-image').offset().top + $('#main-image').outerHeight();
