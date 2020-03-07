@@ -54,7 +54,7 @@ if (have_posts()):
                         ?>
                         <div class="single-page__related-post">
                             <div class="title">
-                                <span class="slug" style="text-transform: uppercase;"><?= $termSlug?></span>
+                                <!-- <span class="slug" style="text-transform: uppercase;"><?= $termSlug?></span> -->
                                 <span>RELATED POSTS</span>
                             </div>
                             <ul class="related-post-list">
