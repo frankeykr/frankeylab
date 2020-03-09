@@ -264,8 +264,8 @@ register_taxonomy(
 );
 
 register_taxonomy(
-    ' blog-category',
-    ' blog',
+    'blog-category',
+    'blog',
     array(
         'hierarchical' => true,
         'update_count_callback' => '_update_post_term_count',
@@ -315,7 +315,12 @@ add_common_category();
 function add_common_category()
 {
     // post type CODE
-    wp_insert_term( '워드프레스', 'code-category', array('slug' => 'wordpress'));
+    wp_insert_term( 'Wordpress', 'code-category', array('slug' => 'wordpress'));
+    wp_insert_term( 'Magento2', 'code-category', array('slug' => 'magento2'));
+    wp_insert_term( 'PHP', 'code-category', array('slug' => 'php'));
+    wp_insert_term( 'Ruby', 'code-category', array('slug' => 'ruby'));
+    wp_insert_term( 'CSS', 'code-category', array('slug' => 'css'));
+    wp_insert_term( 'JavaScript', 'code-category', array('slug' => 'javascript'));
 
     // post type BLOG
     wp_insert_term( 'SEO', 'blog-category', array('slug' => 'seo'));
