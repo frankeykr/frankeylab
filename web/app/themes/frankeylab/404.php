@@ -2,29 +2,20 @@
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-        <div class="content-wrap content-wrap-404">
-            <div class="black-band-area"></div>
-            <div class="black-band-title sidebar-title">
-                <h3 class="section-title">404 NOT FOUND</h3>
-            </div>
-
-            <div class="main-content-wrap">
-                <section class="main-content-area">
-                    <div id="main-visual" class="main-visual">
-                        <div class="main-visual-container main-visual-image"></div>
-                        <h1 class="main-title">404 NOT FOUND</h1>
-                    </div>
-                    <div class="content-inner content-inner-404">
-                        <h1>お探しのページは<br>見つかりませんでした</h1>
-                        <p>URLが正しく入力されているか、確認してください。</p>
-
-                        <div class="link-to-top-page">
-                            <a class="link-to-top-page-btn" href="<?php echo home_url(); ?>">
-                                <span>TOPへ戻る</span>
-                            </a>
-                        </div>
-                    </div>
-                </section>
+        <div class="content-wrap not-found">
+            <div class="content">
+                <div class="english">
+                    <span>404</span>
+                    <span>NOT FOUND</span>
+                </div>
+                <div class="korean">
+                    <p>찾을수 없는 페이지 입니다.</p>
+                </div>
+                <div class="link-to-page">
+                    <a href="<?= home_url();?>" class="link">
+                        <span>HOME</span>
+                    </a>
+                </div>
             </div>
         </div>
     </main><!-- .site-main -->
