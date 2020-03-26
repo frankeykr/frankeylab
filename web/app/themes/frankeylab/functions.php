@@ -755,14 +755,15 @@ function add_about_code_short_code() {
     <div class="about">
         <div class="about__content">
             <p>
-                일본에서 웹 엔지니어로 생계를 유지하고 있습니다. SEO ・ 어필리에이트 ・ 자동화 수익을 연구하여 수익을 내는게 목표입니다. <br>
+                SEO・어필리에이트・자동화 수익에 관심이 많은 WEB 엔지니어입니다. 
+                출퇴근의 무한루프에서 벗어나, 경제적 자유를 꿈꾸고 있습니다.<br>
                 <br>
-                대한민국 공군 전역 → 디자인 전문대학 졸업 → 디자인 회사 1년 → 부산에서 음식점 창업 → 
-                10개월만에 창업실패 → 프로그래밍 학원 4개월 → 일본어 공부 병행 → 신규졸업자로 도쿄 IT기업에 취직   
+                대한민국 공군 전역 → 디자인 전문대학 졸업 → 디자인 회사 인턴 → 부산대학교 음식점 창업 → 
+                창업실패 → 프로그래밍・일본어 공부 병행 → 도쿄 IT기업 취직   
             </p>
         </div>
         <div class="about__link">
-            <a class="link" href="<?= home_url()?>/#">
+            <!-- <a class="link" href="<?= home_url()?>/#">
                 <span>상세 프로필</span>
                 <div class="arrow-container">
                     <div class="arrow-box">
@@ -770,9 +771,9 @@ function add_about_code_short_code() {
                         <span class="arrow segunda next"></span>
                     </div>
                 </div>
-            </a>
-            <a class="link" href="<?= home_url()?>/#">
-                <span>메일 문의하기</span>
+            </a> -->
+            <a class="link" href="mailto:frankeykr@gmail.com" target="_blank">
+                <span>메일문의</span>
                 <div class="arrow-container">
                     <div class="arrow-box">
                         <span class="arrow primera next"></span>
