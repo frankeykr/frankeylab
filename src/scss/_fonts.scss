@@ -37,5 +37,18 @@
     font-style: normal;
     src: url('/app/themes/frankeylab/fonts/Lato/Lato-Bold.woff') format('woff');
 }
+// Noto Sans
+@font-face{
+    font-family: "noto-sans";
+    font-weight: normal;
+    font-style: normal;
+    src: url('/app/themes/frankeylab/fonts/NotoSansCJKjp/NotoSansCJKjp-Regular.woff') format('woff');
+}
+@font-face{
+    font-family: "noto-sans";
+    font-weight: bold;
+    font-style: normal;
+    src: url('/app/themes/frankeylab/fonts/NotoSansCJKjp/NotoSansCJKjp-Bold.woff') format('woff');
+}
 
 $font-family: '"Lato", "NanumSquare", sans-serif';
