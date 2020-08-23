@@ -732,7 +732,7 @@ function add_profile_code_short_code() {
     <div class="sidebar-profile">
         <div class="sidebar-profile__image-container">
             <img class="sidebar-profile__image-container__image" 
-            src="<?= get_stylesheet_directory_uri()?>/image/profile.jpeg" alt="profile-img">
+            src="<?= get_stylesheet_directory_uri()?>/image/profile.jpg" alt="profile-img">
         </div>
         <div class="sidebar-profile__name-container">
             <span class="sidebar-profile__name-container__name">FRANKEY</span>
