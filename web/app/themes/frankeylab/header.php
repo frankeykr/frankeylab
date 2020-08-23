@@ -1,6 +1,7 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta charset="<?php bloginfo('charset'); ?>">
     <?php wp_head(); ?>
