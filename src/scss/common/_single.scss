@@ -167,10 +167,6 @@
                 }
             }
 
-            img {
-                // margin: 48px 0;
-            }
-
             em {
                 font-weight: 400;
                 line-height: 2;
@@ -186,6 +182,10 @@
 
             .wp-block-image {
                 margin: 30px 0;
+
+                figcaption {
+                    opacity: 0.7;
+                }
             }
 
             .share-btn {
