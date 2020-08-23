@@ -129,13 +129,12 @@
             }
 
             p {
-                font-size: 16px;
+                font-size: 18px;
                 line-height: 2;
                 letter-spacing: 1px;
 
                 @include sp-screen {
-                    font-size: 14px;
-                    line-height: 1.5;
+                    font-size: 16px;
                 }
             }
 
