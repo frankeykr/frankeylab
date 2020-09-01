@@ -77,7 +77,6 @@
     "wpackagist-plugin/duplicate-post":"^3",
     "wpackagist-plugin/wp-multibyte-patch":"^2",
     "wpackagist-plugin/google-analytics-for-wordpress":"^7",
-    "wpackagist-plugin/better-wp-security":"^7",
     "wpackagist-plugin/lazysizes":"^1",
     "wpackagist-plugin/breadcrumb-navxt":"^6",
     "wpackagist-plugin/contact-form-7-add-confirm":"^5",
