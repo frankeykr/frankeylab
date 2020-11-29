@@ -10,6 +10,9 @@ function enqueue_styles_and_scripts() {
     wp_enqueue_style('base-css', get_stylesheet_directory_uri() . '/dist/css/base.css');
     wp_enqueue_script('base-js', get_stylesheet_directory_uri() . '/dist/js/base.js', array(), false, true);
     
+    if (is_post_type_archive('outdoor')) {
+        wp_enqueue_script('infinite-scroll', get_stylesheet_directory_uri() . '/dist/js/infinite_scroll.js', array(), false, true);
+    }
     if (is_post_type_archive('blog')) {
         wp_enqueue_script('infinite-scroll', get_stylesheet_directory_uri() . '/dist/js/infinite_scroll.js', array(), false, true);
     }
@@ -34,6 +37,38 @@ function remove_menu() {
 /**
  * 커스텀포스트 추가
  */
+add_action('init', 'add_outdoor_custom_post_type');
+function add_outdoor_custom_post_type() {
+    $outdoorParams = array(
+        'labels' => array(
+            'name' => '아웃도어',
+            'singular_name' => '아웃도어',
+            'add_new' => '아웃도어 추가',
+            'add_new_item' => '신규 아웃도어 추가',
+            'edit_item' => '편집',
+            'new_item' => '신착 아웃도어',
+            'all_items' => '모든 아웃도어',
+            'view_item' => '아웃도어 보기',
+            'search_items' => '아웃도어 검색',
+            'not_found' => '찾을 수 없습니다',
+            'not_found_in_trash' => '휴지통 안에 없습니다',
+            'enter_title_here' => '아웃도어 이름을 입력',
+        ),
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'capability_type' => 'post',
+        'has_archive' => true,
+        'hierarchical' => false,
+        "supports" => array("title", "editor", "thumbnail"),
+        'menu_position' => 21,
+        'show_in_rest' => true,
+    );
+    register_post_type('outdoor', $outdoorParams);
+}
+
 add_action('init', 'add_code_custom_post_type');
 function add_code_custom_post_type() {
     $codeParams = array(
@@ -166,6 +201,26 @@ function add_life_custom_post_type() {
  * 커스텀포스트에 태그 기능 추가
  */
 register_taxonomy(
+    'outdoor-tag',
+    'outdoor',
+    array(
+        'hierarchical' => false,
+        'label' => '아웃도어 태그',
+        'singular_label' => '아웃도어 태그',
+        'public' => true,
+        'query_var' => true,
+        'has_archive' => false,
+        'rewrite' => true,
+        'show_ui' => true,
+        'show_in_rest' => true,
+        'labels' => array(
+            'add_new_item' => '아웃도어 태그 추가',
+            'search_items' => '아웃도어 태그 검색',
+        )
+    )
+);
+
+register_taxonomy(
     'code-tag',
     'code',
     array(
@@ -249,6 +304,21 @@ register_taxonomy(
  * 커스텀포스트에 카테고리 추가
  */
 register_taxonomy(
+    'outdoor-category',
+    'outdoor',
+    array(
+        'hierarchical' => true,
+        'update_count_callback' => '_update_post_term_count',
+        'label' => '아웃도어 카테고리',
+        'singular_label' => '아웃도어 카테고리',
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => false, // 관리화면에서 표시 안함
+        'show_in_rest' => true,
+    )
+);
+
+register_taxonomy(
     'code-category',
     'code',
     array(
@@ -314,6 +384,10 @@ register_taxonomy(
 add_common_category();
 function add_common_category()
 {
+    // post type OUTDOOR
+    wp_insert_term( '캠핑', 'outdoor-category', array('slug' => 'camping'));
+    wp_insert_term( '등산', 'outdoor-category', array('slug' => 'hiking'));
+
     // post type CODE
     wp_insert_term( 'Wordpress', 'code-category', array('slug' => 'wordpress'));
     wp_insert_term( 'Magento2', 'code-category', array('slug' => 'magento2'));
@@ -355,6 +429,9 @@ function menu_setup()
 */
 add_filter('next_posts_link_attributes', 'add_next_posts_link_class');
 function add_next_posts_link_class() {
+    if (is_post_type_archive('outdoor')) {
+        return 'id="archive__pagination-next" class="archive__pagination-next-class"';
+    }
     if (is_post_type_archive('blog')) {
         return 'id="archive__pagination-next" class="archive__pagination-next-class"';
     }
@@ -374,6 +451,9 @@ add_action('pre_get_posts', 'change_posts_per_page');
 function change_posts_per_page($query) {
     if (is_admin() || !$query->is_main_query()) {
         return;
+    }
+    if (is_post_type_archive('outdoor')) {
+        $query->set('posts_per_page', 1);
     }
     if (is_post_type_archive('blog')) {
         $query->set('posts_per_page', 1);
@@ -444,6 +524,88 @@ function add_blog_list_code_short_code() {
                             $blogTags = get_the_terms($blogObject->ID, 'blog-tag');
                             if ($blogTags) {
                                 foreach ($blogTags as $tag) {
+                                    echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
+                                }
+                            } ?>
+                            </ul>
+                        </div>
+                        <div class="post-list__item__content">
+                            <p class="content"><?= wp_trim_words(get_the_content(), 30, '⋯'); ?></p>
+                            <a href="<?php the_permalink(); ?>" class="link">
+                                <span>READ MORE</span>
+                                <div class="arrow-container">
+                                    <div class="arrow-box">
+                                        <span class="arrow primera next"></span>
+                                        <span class="arrow segunda next"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                <?php
+                endwhile;
+            endif;
+            wp_reset_postdata();
+            ?>
+        </ul>
+    </section>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('outdoor_list', 'add_outdoor_list_code_short_code');
+function add_outdoor_list_code_short_code() {
+    ob_start();
+    ?>
+    <section class="post">
+        <?php
+        $outdoorObject = new WP_Query(array(
+            'post_type' => 'outdoor',
+            'posts_per_page' => 3,
+            'order' => 'DESC',
+            'orderby' => 'date',
+        ));
+        ?>
+        <ul class="post-list">
+            <?php
+            if ($outdoorObject->have_posts()):
+                while ($outdoorObject->have_posts()):$outdoorObject->the_post();
+                    $outdoorImageUrl = "";
+                    if (has_post_thumbnail()) {
+                        $outdoorImageUrl = wp_get_attachment_image_src(get_post_thumbnail_id($outdoorObject->ID), 'large')[0];
+                    } else {
+                        $outdoorImageUrl = get_stylesheet_directory_uri() . "/image/no-image.svg";
+                    }
+                    ?>
+                    <li class="post-list__item">
+                        <div class="post-list__item__new-icon">
+                            <?php
+                            $today = date_i18n('U');
+                            $postPublishDay = get_the_time('U');
+                            $dayDifference = ($today - $postPublishDay) / 86400;
+                            if ($dayDifference < 14) { ?>
+                                <span class="new-icon">NEW!</span>
+                            <?php } ?>
+                        </div>
+                        <div class="post-list__item__title">
+                            <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                                <h2 class="title"><?= wp_trim_words(get_the_title(), 52, '⋯'); ?></h2>
+                            </a>
+                        </div>
+                        <div class="post-list__item__date">
+                            <span class="date"><?php the_date('Y/n/j'); ?></span>
+                        </div>
+                        <div class="post-list__item__image">
+                            <div class="post-image-container">
+                                <a href="<?php the_permalink(); ?>" class="link-to-single-page">
+                                    <img class="image" src="<?= $outdoorImageUrl; ?>"
+                                        alt="<?php the_title(); ?>">
+                                </a>
+                            </div>
+                            <ul class="tags-container">
+                            <?php
+                            $outdoorTags = get_the_terms($outdoorObject->ID, 'outdoor-tag');
+                            if ($outdoorTags) {
+                                foreach ($outdoorTags as $tag) {
                                     echo '<li class="tag"><span>#' . esc_html($tag->name) . '</span></li>';
                                 }
                             } ?>
