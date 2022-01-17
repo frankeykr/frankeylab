@@ -24,7 +24,12 @@
     "forum": "https://discourse.roots.io/category/bedrock"
   },
   "config": {
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "composer/installers": true,
+      "koodimonni/composer-dropin-installer": true,
+      "roots/wordpress-core-installer": true
+    }
   },
   "repositories": [
     {
@@ -65,27 +70,27 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "wpackagist-plugin/advanced-custom-fields":"^5",
-    "wpackagist-plugin/wordpress-seo":"^11",
+    "wpackagist-plugin/wordpress-seo":"^17",
     "wpackagist-plugin/contact-form-7":"^5",
     "mdsimpson/contact-form-7-to-database-extension":"^2",
     "wpackagist-plugin/google-captcha":"^1",
     "wpackagist-plugin/favicon-by-realfavicongenerator":"^1",
     "wpackagist-plugin/intuitive-custom-post-order":"^3",
-    "wpackagist-plugin/custom-taxonomy-order-ne":"^2",
+    "wpackagist-plugin/custom-taxonomy-order-ne":"^3",
     "wpackagist-plugin/post-smtp":"^2",
     "wpackagist-plugin/search-and-replace":"^3",
-    "wpackagist-plugin/duplicate-post":"^3",
+    "wpackagist-plugin/duplicate-post":"^4",
     "wpackagist-plugin/wp-multibyte-patch":"^2",
-    "wpackagist-plugin/google-analytics-for-wordpress":"^7",
+    "wpackagist-plugin/google-analytics-for-wordpress":"^8",
     "wpackagist-plugin/lazysizes":"^1",
-    "wpackagist-plugin/breadcrumb-navxt":"^6",
+    "wpackagist-plugin/breadcrumb-navxt":"^7",
     "wpackagist-plugin/contact-form-7-add-confirm":"^5",
-    "wpackagist-plugin/redirection":"^4",
+    "wpackagist-plugin/redirection":"^5",
     "wpackagist-plugin/instagram-feed":"^2",
-    "wpackagist-plugin/enlighter":"^3",
+    "wpackagist-plugin/enlighter":"^4",
     "wpackagist-plugin/radio-buttons-for-taxonomies":"^2",
     "koodimonni-language/core-ko_kr": "^5",
-    "koodimonni/composer-dropin-installer": "^1"
+    "koodimonni/composer-dropin-installer": "*"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.0.2",
