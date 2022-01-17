@@ -11,6 +11,10 @@ module.exports = {
     infinite_scroll: [
       './src/js/infinite_scroll.js',
     ],
+
+    scroll_indicator: [
+      './src/js/scroll_indicator.js',
+    ],
   },
   output: {
     path: path.join(__dirname, 'web/app/themes/frankeylab/dist'),

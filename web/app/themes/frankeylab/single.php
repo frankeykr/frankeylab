@@ -12,6 +12,7 @@ if (have_posts()):
         ?>
 
         <div id="primary" class="content-area single-page-content-area">
+            <div class="line" id="scrollIndicator"></div>
             <main id="main" class="site-main single-page-main" role="main">
                 <div id="main-image" class="single-page-main__image-container">
                     <img src="<?= $singlePageImageUrl; ?>" alt="<?php the_title(); ?>">

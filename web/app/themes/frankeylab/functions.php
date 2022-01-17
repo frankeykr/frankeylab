@@ -9,6 +9,7 @@ function enqueue_styles_and_scripts() {
     wp_dequeue_style('parent-style'); // 부모 테마의 디폴트 스타일 시트를 불러오지 못하게 한다
     wp_enqueue_style('base-css', get_stylesheet_directory_uri() . '/dist/css/base.css');
     wp_enqueue_script('base-js', get_stylesheet_directory_uri() . '/dist/js/base.js', array(), false, true);
+    wp_enqueue_script('scroll_indicator', get_stylesheet_directory_uri() . '/dist/js/scroll_indicator.js', array(), false, true);
     
     if (is_post_type_archive('outdoor')) {
         wp_enqueue_script('infinite-scroll', get_stylesheet_directory_uri() . '/dist/js/infinite_scroll.js', array(), false, true);
