@@ -4,6 +4,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta charset="<?php bloginfo('charset'); ?>">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2546334153394027"
+     crossorigin="anonymous"></script>
     <?php wp_head(); ?>
 </head>
 <body>
