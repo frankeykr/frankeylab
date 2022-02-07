@@ -58,6 +58,18 @@ if (have_posts()):
                         $termSlug = $term[0]->slug; //텀 슬러그
                         ?>
                         <div class="single-page__related-post">
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2546334153394027"
+                                crossorigin="anonymous"></script>
+                            <!-- 본문아래 -->
+                            <ins class="adsbygoogle"
+                                style="display:block"
+                                data-ad-client="ca-pub-2546334153394027"
+                                data-ad-slot="8299709575"
+                                data-ad-format="auto"
+                                data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
                             <div class="title">
                                 <!-- <span class="slug" style="text-transform: uppercase;"><?= $termSlug?></span> -->
                                 <span>RELATED POSTS</span>
