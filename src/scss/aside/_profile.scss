@@ -1,5 +1,6 @@
 .sidebar-profile {
     padding-top: 60px;
+    padding-bottom: 60px;
 
     @include sp-screen {
         display: none;
