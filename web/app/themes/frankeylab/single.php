@@ -11,6 +11,22 @@ if (have_posts()):
         }
         ?>
 
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                var visualOffset;
+                $(window).on('load',function(){
+                    visualOffset = $('#main-image').offset().top + $('#main-image').outerHeight();
+                });
+                $(window).scroll(function() {
+                    if ( $(window).scrollTop() > visualOffset){
+                        $('.hamburger-menu').addClass("active");
+                    } else {
+                        $('.hamburger-menu').removeClass("active");
+                    }
+                });
+            });
+        </script>
+
         <div id="primary" class="content-area single-page-content-area">
             <div class="line" id="scrollIndicator"></div>
             <main id="main" class="site-main single-page-main" role="main">

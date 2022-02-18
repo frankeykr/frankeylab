@@ -38,19 +38,6 @@
             $('.hamburger-menu').click(function(){
                 $('.site-header').toggleClass('is-active');
             });
-
-            var visualOffset;
-            $(window).on('load',function(){
-                visualOffset = $('#main-image').offset().top + $('#main-image').outerHeight();
-            });
-
-            $(window).scroll(function() {
-                if ( $(window).scrollTop() > visualOffset){
-                    $('.hamburger-menu').addClass("active");
-                } else {
-                    $('.hamburger-menu').removeClass("active");
-                }
-            });
         });
     </script>
 </header>
