@@ -24,7 +24,7 @@
             &:before {
                 content: '';
                 display: block;
-                width: 6px;
+                width: 7px;
                 height: 1px;
                 background: $theme__font-color__gray;
                 transform: rotate(45deg);
@@ -34,7 +34,7 @@
             &:after {
                 content: '';
                 display: block;
-                width: 6px;
+                width: 7px;
                 height: 1px;
                 background: $theme__font-color__gray;
                 transform: rotate(-45deg);
