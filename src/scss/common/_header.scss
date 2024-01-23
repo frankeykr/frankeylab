@@ -14,15 +14,6 @@
     position: relative;
     margin-right: 64px;
 
-    &:before {
-        content: '';
-        position: absolute;
-        width: 30px;
-        height: 3px;
-        background: black;
-        top: -10px;
-    }
-    
     p {
         font-size: 25px;
         font-family: 'Cutive Mono', monospace;
@@ -64,11 +55,11 @@
 }
 
 .global-navi {
-    width: 100%;
     display: flex;
     justify-content: flex-end;
 
     @include sp-screen {
+        width: 100%;
         position: fixed;
         top: 0;
         left: 0;

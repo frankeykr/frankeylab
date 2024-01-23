@@ -887,7 +887,7 @@ function add_profile_code_short_code() {
             src="<?= get_stylesheet_directory_uri()?>/image/profile.png" alt="profile-img">
         </div>
         <div class="sidebar-profile__name-container">
-            <span class="sidebar-profile__name-container__name">FRANKEY</span>
+            <span class="sidebar-profile__name-container__name">도쿄직장인, 후랑키</span>
         </div>
         <div class="sidebar-profile__content-container">
             <?php echo do_shortcode('[about]'); ?>
@@ -907,30 +907,25 @@ function add_about_code_short_code() {
     <div class="about">
         <div class="about__content">
             <p>
-                대한민국 공군 전역 → 디자인 전문대학 졸업 → 디자인 회사 인턴 → 음식점 창업 → 
-                창업실패 → 웹 프로그래밍・일본어 공부 병행 → 도쿄 IT기업 취직 <br>
-                <br>
-                출퇴근의 무한루프에서 탈출하는 경제적 자유를 꿈꾸고 있습니다.    
+                대한민국 공군 전역 → 디자인 전문대학교 졸업 → 디자인 회사 인턴 → 음식점 창업 → 
+                창업실패 → WEB 프로그래밍・일본어 공부 병행 → 도쿄 IT 중소기업 취직 → 외국계 IT 컨설팅 대기업 이직 → (돈 걱정없는 인생?)<br />
+                <br />
+                2018년 10월 도쿄에서 생활시작🗼 <br />
+                2019년 1월부터 도쿄 옆동네 치바로 이사.<br />
+                2024년 1월부터 장기출장으로 후쿠오카에 거주중.<br />
+                <br />
+                일본에서 살아가면서 느낀 경험과 여행, 생활, 취업 등 일본에 관련된 정보를 제공합니다. 누군가에게는 도움이 되었으면 하는 마음에 시작했습니다.    
             </p>
         </div>
         <div class="about__link">
-            <!-- <a class="link" href="<?= home_url()?>/#">
-                <span>상세 프로필</span>
-                <div class="arrow-container">
-                    <div class="arrow-box">
-                        <span class="arrow primera next"></span>
-                        <span class="arrow segunda next"></span>
-                    </div>
-                </div>
-            </a> -->
             <a class="link" href="mailto:frankeykr@gmail.com" target="_blank">
-                <span>메일문의</span>
-                <div class="arrow-container">
-                    <div class="arrow-box">
-                        <span class="arrow primera next"></span>
-                        <span class="arrow segunda next"></span>
-                    </div>
-                </div>
+                <i class="fa-regular fa-envelope fa-lg"></i>
+            </a>
+            <a class="link" href="https://www.instagram.com/frankeykr">
+                <i class="fa-brands fa-instagram fa-lg"></i>
+            </a>
+            <a class="link" href="https://www.youtube.com/@frankeykr">
+                <i class="fa-brands fa-youtube fa-lg"></i>
             </a>
         </div>
     </div>

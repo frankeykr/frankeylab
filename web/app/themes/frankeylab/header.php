@@ -7,6 +7,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2546334153394027"
      crossorigin="anonymous"></script>
+     <script src="https://kit.fontawesome.com/a57697c894.js" crossorigin="anonymous"></script>
     <?php wp_head(); ?>
 </head>
 <body>
@@ -15,7 +16,7 @@
     <div class="site-header">
         <div class="logo-text">
             <a href="<?= home_url()?>">
-                <p>FRANKEY<br>LAB.</p>
+                <p>도쿄직장인、<br>후랑키</p>
             </a>
         </div>
         <div class="hamburger-menu">

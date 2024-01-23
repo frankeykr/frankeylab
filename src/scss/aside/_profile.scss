@@ -30,9 +30,7 @@
     &__content-container {
         .about {
             &__link {
-                a {
-                    justify-content: flex-end;
-                }
+                justify-content: center;
             }
         }
     }
