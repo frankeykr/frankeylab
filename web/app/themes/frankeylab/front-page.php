@@ -25,6 +25,20 @@ get_header(); ?>
                     </script>
                 </aside>
             </div>
+            <div class="content-bottom-ads">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2546334153394027"
+                    crossorigin="anonymous"></script>
+                <!-- 프론트 아래 -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-2546334153394027"
+                    data-ad-slot="1994186440"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
         </main><!-- .site-main -->
     </div><!-- .content-area -->
 
