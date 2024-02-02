@@ -44,7 +44,20 @@ if (have_posts()):
                         </ul>
                         <div class="title-and-date">
                             <h1 class="title"><?php the_title(); ?></h1>
-                            <span class="date"><?php the_date('Y/n/j'); ?></span>
+                            <div class="date-container">
+                                <div class="upload-date">
+                                    <i class="icon fa-regular fa-calendar"></i>
+                                    <span class="date"><?php the_time('Y/n/j'); ?></span>
+                                </div>
+                                <?php if(get_the_time('Y/n/j') != get_the_modified_date('Y/n/j')):?>
+                                <div class="update-date">
+                                    <i class="icon fa-solid fa-arrow-rotate-right"></i>
+                                    <span class="date">
+                                        <?php the_modified_date('Y/n/j') ?>
+                                    </span>
+                                </div>
+                                <?php endif;?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,20 +77,6 @@ if (have_posts()):
                         </script>
                         <div class="single-page__content">
                             <?php the_content(); ?>
-                            <div class="share-btn">
-                                <ul class="share-btn__list">
-                                    <li class="share-btn__list__item">
-                                        <a class="twitter icon-twitter" href="//twitter.com/intent/tweet?text=<?php echo urlencode(the_title("","",0)); ?>&<?php echo urlencode(get_permalink()); ?>&url=<?php echo urlencode(get_permalink()); ?>" target="_blank" title="share on twitter">
-                                            <img src="<?= get_stylesheet_directory_uri()?>/image/logo-twitter.png" alt="">
-                                        </a>
-                                    </li>
-                                    <li class="share-btn__list__item">
-                                        <a class="facebook icon-facebook" href="//www.facebook.com/sharer.php?u=<?php echo urlencode(get_permalink()); ?>&t=<?php echo urlencode(the_title("","",0)); ?>" target="_blank" title="share on facebook">
-                                            <img src="<?= get_stylesheet_directory_uri()?>/image/logo-facebook.png" alt="">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                         <?php
                         $postCategory = $postType . '-category';

@@ -500,7 +500,20 @@ function add_blog_list_code_short_code() {
                             </a>
                         </div>
                         <div class="post-list__item__date">
-                            <span class="date"><?php the_date('Y/n/j'); ?></span>
+                            <div class="date-container">
+                                <div class="upload-date">
+                                    <i class="icon fa-regular fa-calendar"></i>
+                                    <span class="date"><?php the_time('Y/n/j'); ?></span>
+                                </div>
+                                <?php if(get_the_time('Y/n/j') != get_the_modified_date('Y/n/j')):?>
+                                <div class="update-date">
+                                    <i class="icon fa-solid fa-arrow-rotate-right"></i>
+                                    <span class="date">
+                                        <?php the_modified_date('Y/n/j') ?>
+                                    </span>
+                                </div>
+                                <?php endif;?>
+                            </div>
                         </div>
                         <div class="post-list__item__image">
                             <div class="post-image-container">
@@ -582,7 +595,20 @@ function add_outdoor_list_code_short_code() {
                             </a>
                         </div>
                         <div class="post-list__item__date">
-                            <span class="date"><?php the_date('Y/n/j'); ?></span>
+                            <div class="date-container">
+                                <div class="upload-date">
+                                    <i class="icon fa-regular fa-calendar"></i>
+                                    <span class="date"><?php the_time('Y/n/j'); ?></span>
+                                </div>
+                                <?php if(get_the_time('Y/n/j') != get_the_modified_date('Y/n/j')):?>
+                                <div class="update-date">
+                                    <i class="icon fa-solid fa-arrow-rotate-right"></i>
+                                    <span class="date">
+                                        <?php the_modified_date('Y/n/j') ?>
+                                    </span>
+                                </div>
+                                <?php endif;?>
+                            </div>
                         </div>
                         <div class="post-list__item__image">
                             <div class="post-image-container">
@@ -665,7 +691,20 @@ function add_code_list_code_short_code() {
                             </a>
                         </div>
                         <div class="post-list__item__date">
-                            <span class="date"><?php the_date('Y/n/j'); ?></span>
+                            <div class="date-container">
+                                <div class="upload-date">
+                                    <i class="icon fa-regular fa-calendar"></i>
+                                    <span class="date"><?php the_time('Y/n/j'); ?></span>
+                                </div>
+                                <?php if(get_the_time('Y/n/j') != get_the_modified_date('Y/n/j')):?>
+                                <div class="update-date">
+                                    <i class="icon fa-solid fa-arrow-rotate-right"></i>
+                                    <span class="date">
+                                        <?php the_modified_date('Y/n/j') ?>
+                                    </span>
+                                </div>
+                                <?php endif;?>
+                            </div>
                         </div>
                         <div class="post-list__item__image">
                             <div class="post-image-container">
@@ -748,7 +787,20 @@ function add_japan_list_code_short_code() {
                             </a>
                         </div>
                         <div class="post-list__item__date">
-                            <span class="date"><?php the_date('Y/n/j'); ?></span>
+                            <div class="date-container">
+                                <div class="upload-date">
+                                    <i class="icon fa-regular fa-calendar"></i>
+                                    <span class="date"><?php the_time('Y/n/j'); ?></span>
+                                </div>
+                                <?php if(get_the_time('Y/n/j') != get_the_modified_date('Y/n/j')):?>
+                                <div class="update-date">
+                                    <i class="icon fa-solid fa-arrow-rotate-right"></i>
+                                    <span class="date">
+                                        <?php the_modified_date('Y/n/j') ?>
+                                    </span>
+                                </div>
+                                <?php endif;?>
+                            </div>
                         </div>
                         <div class="post-list__item__image">
                             <div class="post-image-container">
@@ -842,7 +894,20 @@ function add_life_list_code_short_code() {
                             </a>
                         </div>
                         <div class="post-list__item__date">
-                            <span class="date"><?php the_date('Y/n/j'); ?></span>
+                            <div class="date-container">
+                                <div class="upload-date">
+                                    <i class="icon fa-regular fa-calendar"></i>
+                                    <span class="date"><?php the_time('Y/n/j'); ?></span>
+                                </div>
+                                <?php if(get_the_time('Y/n/j') != get_the_modified_date('Y/n/j')):?>
+                                <div class="update-date">
+                                    <i class="icon fa-solid fa-arrow-rotate-right"></i>
+                                    <span class="date">
+                                        <?php the_modified_date('Y/n/j') ?>
+                                    </span>
+                                </div>
+                                <?php endif;?>
+                            </div>
                         </div>
                         <div class="post-list__item__image">
                             <div class="post-image-container">

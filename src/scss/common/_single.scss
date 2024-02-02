@@ -73,19 +73,32 @@
                         letter-spacing: 0;
                     }
                 }
-    
-                .date {
-                    color: $theme__font-color__white;
-                    font-size: 16px;
-                    letter-spacing: 1px;
-    
-                    @include sp-screen {
-                        font-size: 14px;
+                .date-container {
+                    display: flex;
+                    .date {
+                        color: $theme__font-color__white;
+                        font-size: 16px;
+                        letter-spacing: 1px;
+        
+                        @include sp-screen {
+                            font-size: 14px;
+                        }
+                    }
+                    .icon {
+                        color: $theme__font-color__white;
+                        margin-right: 4px;
+                    }
+                    .upload-date {
+                        display: flex;
+                        align-items: center;
+                    }
+                    .update-date {
+                        display: flex;
+                        align-items: center;
+                        margin-left: 20px;
                     }
                 }
             }
-    
-            
         }
     }
 }
