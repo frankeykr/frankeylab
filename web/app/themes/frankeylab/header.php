@@ -5,6 +5,7 @@
     <link rel="shortcut icon" href="<?= get_stylesheet_directory_uri()?>/image/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="agd-partner-manual-verification" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2546334153394027"
      crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a57697c894.js" crossorigin="anonymous"></script>
