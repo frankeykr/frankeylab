@@ -101,4 +101,9 @@ img {
   position: fixed;
   top: 32px;
   z-index: 1000;
+
+  @include sp-screen {
+    position: unset;
+    top: auto;
+  }
 }
