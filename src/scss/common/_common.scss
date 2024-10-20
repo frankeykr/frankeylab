@@ -1,94 +1,104 @@
-*, 
-*:before, 
+*,
+*:before,
 *:after {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body * {
-    font-family: #{$font-family};
-    font-style: normal;
-    letter-spacing: 1px;
+  font-family: #{$font-family};
+  font-style: normal;
+  letter-spacing: 1px;
 }
 
-h1, h2, h3, h4,
-a, p {
-    color: $theme__font-color__black;
+h1,
+h2,
+h3,
+h4,
+a,
+p {
+  color: $theme__font-color__black;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
-.site-header, 
+.site-header,
 .site-main,
 .site-footer {
-    margin: 0 auto;
-    width: calc(100% - 200px);
-    max-width: 1080px;
-    padding-left: 16px;
-    padding-right: 16px;
+  margin: 0 auto;
+  width: calc(100% - 200px);
+  max-width: 1080px;
+  padding-left: 16px;
+  padding-right: 16px;
 
-    @include sp-screen {
-        width: 100%;
-        max-width: none;
-    }
+  @include sp-screen {
+    width: 100%;
+    max-width: none;
+  }
 }
 
 .content-wrap {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 50px;
-    padding-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+  padding-bottom: 100px;
+
+  @include sp-screen {
+    padding-top: 0;
+    flex-direction: column-reverse;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 682px;
 
     @include sp-screen {
-        padding-top: 0;
-        flex-direction: column-reverse;
+      max-width: none;
     }
+  }
 
-    .content {
-        width: 100%;
-        max-width: 682px;
+  .sidebar {
+    width: 30%;
+    max-width: 300px;
+    padding-left: 30px;
+    margin-left: 16px;
 
-        @include sp-screen {
-            max-width: none;
-        }
+    @include sp-screen {
+      width: 100%;
+      max-width: none;
+      padding-left: 0;
+      margin-left: 0;
     }
-
-    .sidebar {
-        width: 30%;
-        max-width: 300px;
-        padding-left: 30px;
-        margin-left: 16px;
-
-        @include sp-screen {
-            width: 100%;
-            max-width: none;
-            padding-left: 0;
-            margin-left: 0;
-        }
-    }
+  }
 }
 
 .content-bottom-ads {
-    padding-bottom: 100px;
+  padding-bottom: 100px;
 }
 
 .post-image-container {
-    &__image {
-        width: 100%;
-    }
+  &__image {
+    width: 100%;
+  }
 }
 
 .archive__pagination-next-class {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 
-    .archive-page__pagination-next__image {
-        width: 20px;
-    }
+  .archive-page__pagination-next__image {
+    width: 20px;
+  }
+}
+
+.ad-fixed {
+  position: fixed;
+  top: 32px;
+  z-index: 1000;
 }
